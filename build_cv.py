@@ -16,9 +16,18 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
 ROOT = Path(__file__).parent
-FONT = "Arial"
-ACCENT = RGBColor(0x1F, 0x3A, 0x5F)
-GREY = RGBColor(0x55, 0x55, 0x55)
+FONT = "Times New Roman"
+BLACK = RGBColor(0x00, 0x00, 0x00)
+GREY = RGBColor(0x40, 0x40, 0x40)
+RULE = "A6A6A6"
+
+# Géométrie (cm) : colonne gauche (dates / rubriques) + colonne de contenu
+DATE_CENTER = 1.45
+COL = 3.2
+BUL = COL + 0.45
+SUB = BUL + 0.55
+SIZE = 9.5
+LABEL = 3.5  # largeur des libellés Compétences / Langues
 
 CV = {
     "nom": "NICOLAS QI GUO",
@@ -28,8 +37,7 @@ CV = {
         "Tél. : +33 6 30 23 24 41 | E-mail : qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI, major de promotion ESSEC & Télécom Paris et Université Paris Cité, "
-        "avec 3 ans d'expérience en transformation digitale chez BNP Paribas et La Poste Groupe. "
+        "Chef de projet SI, 3 ans d'expérience en transformation digitale chez BNP Paribas et La Poste Groupe. "
         "Pilotage de projets IA (GenAI, RAG, Copilot) et d'automatisation (RPA, Power Platform), "
         "du recueil des besoins à la mise en production, gouvernance projet et conduite du changement."
     ),
@@ -52,7 +60,7 @@ CV = {
             "dates": "2024 – 2025",
             "poste": "Digital Transformation Project Manager – AIR TECH",
             "entreprise": "BNP PARIBAS",
-            "contrat": "(Alternance)",
+            "contrat": "Alternance",
             "perimetre": "Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécurité financière)",
             "bullets": [
                 ("Structuration et coordination des initiatives IA & RPA : ",
@@ -73,7 +81,7 @@ CV = {
             "dates": "2022 – 2024",
             "poste": "Chef de Projet SI – Data Intelligence & Innovation DTSFG",
             "entreprise": "LA POSTE GROUPE",
-            "contrat": "(Alternance + CDD)",
+            "contrat": "Alternance + CDD",
             "perimetre": "Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, SIRH, SAP)",
             "bullets": [
                 ("Pilotage de projets d'automatisation (RPA & Power Platform), dont 2 de bout en bout :", "", [
@@ -104,76 +112,99 @@ CV = {
     ],
     "competences": [
         ("Gestion de projet : ",
-         "cadrage, recueil des besoins, cahier des charges, spécifications fonctionnelles, planification, "
-         "coordination métiers / IT, recette, mise en production, gestion des risques, COPIL / COSUI"),
+         "cadrage, recueil des besoins, spécifications fonctionnelles, coordination métiers / IT, "
+         "recette, mise en production, gestion des risques, COPIL / COSUI"),
         ("Méthodologies : ", "Cycle en V, Agile, hybride"),
         ("Transformation & IA : ",
-         "GenAI, RAG, Copilot, RPA, POC, qualification de use cases, ROI, conduite du changement"),
+         "GenAI, RAG, Copilot, RPA, POC, use cases, ROI, conduite du changement"),
         ("Environnement SI : ",
-         "SI Finance, SIRH, SAP, intégration applicative, sécurité, conformité et gouvernance des SI"),
+         "SI Finance, SIRH, SAP, intégration, sécurité, conformité, gouvernance SI"),
         ("Outils : ", "Power Apps, Power Automate, Power BI, SharePoint"),
         ("Langages (notions) : ", "Python, SQL, Java, PHP, C, C#, HTML/CSS"),
     ],
-    "langues": "Anglais : professionnel (TOEIC 955/990) | Français : bilingue | Chinois : langue maternelle",
-    "interets": "Sport (crossfit, natation), voyages (18 pays visités), engagement associatif pour la protection animale",
+    "langues": [
+        ("Anglais", "Professionnel (TOEIC 955/990)"),
+        ("Français", "Bilingue"),
+        ("Chinois", "Langue maternelle"),
+    ],
+    "interets": "Sport (crossfit, natation), voyages (18 pays visités), engagement associatif (protection animale)",
 }
 
 
-def set_spacing(p, before=0, after=0, line=1.0):
+def para(doc, before=0, after=0, line=1.0, left=None, first=None, tabs=(), keep=False):
+    p = doc.add_paragraph()
     pf = p.paragraph_format
     pf.space_before = Pt(before)
     pf.space_after = Pt(after)
     pf.line_spacing = line
+    if left is not None:
+        pf.left_indent = Cm(left)
+    if first is not None:
+        pf.first_line_indent = Cm(first)
+    for pos, align in tabs:
+        pf.tab_stops.add_tab_stop(Cm(pos), align)
+    pf.keep_with_next = keep
+    return p
 
 
-def run(p, text, size=9.5, bold=False, italic=False, color=None):
+def run(p, text, size=None, bold=False, italic=False, color=BLACK, underline=False):
     r = p.add_run(text)
     r.font.name = FONT
-    r._element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
-    r.font.size = Pt(size)
+    r._element.get_or_add_rPr().get_or_add_rFonts().set(qn("w:eastAsia"), FONT)
+    r.font.size = Pt(size or SIZE)
     r.bold = bold
     r.italic = italic
-    if color is not None:
-        r.font.color.rgb = color
+    r.underline = underline
+    r.font.color.rgb = color
     return r
 
 
-def bottom_border(p):
+def rule(doc, length_cm=None, before=6, after=6):
+    """Filet gris fin ; court (length_cm) ou pleine largeur."""
+    p = para(doc, before=before, after=after, line=0.1)
+    if length_cm is not None:
+        p.paragraph_format.right_indent = Cm(CONTENT_WIDTH - length_cm)
     pPr = p._p.get_or_add_pPr()
     bdr = OxmlElement("w:pBdr")
     b = OxmlElement("w:bottom")
-    for k, v in (("w:val", "single"), ("w:sz", "6"), ("w:space", "1"), ("w:color", "1F3A5F")):
+    for k, v in (("w:val", "single"), ("w:sz", "4"), ("w:space", "1"), ("w:color", RULE)):
         b.set(qn(k), v)
     bdr.append(b)
     pPr.append(bdr)
+    run(p, "", size=2)
 
 
-def section(doc, title):
-    p = doc.add_paragraph()
-    set_spacing(p, before=7, after=3)
-    run(p, title, size=10.5, bold=True, color=ACCENT)
-    bottom_border(p)
+def section(doc, title, first=False):
+    if not first:
+        rule(doc, length_cm=3.2, before=3, after=4)
+    p = para(doc, after=5, keep=True)
+    run(p, title)
 
 
-def bullet(doc, label, text, level=0):
-    p = doc.add_paragraph()
-    set_spacing(p, after=1, line=1.05)
-    pf = p.paragraph_format
-    indent = 0.5 + 0.5 * level
-    pf.left_indent = Cm(indent)
-    pf.first_line_indent = Cm(-0.35)
-    run(p, ("• " if level == 0 else "– ") + " ")
+def dated_line(doc, dates, before=0, after=0):
+    """Ligne avec date centrée dans la colonne gauche et contenu en colonne droite."""
+    from docx.enum.text import WD_TAB_ALIGNMENT
+    p = para(doc, before=before, after=after, left=COL, first=-COL,
+             tabs=((DATE_CENTER, WD_TAB_ALIGNMENT.CENTER), (COL, WD_TAB_ALIGNMENT.LEFT)), keep=True)
+    run(p, "\t" + dates + "\t")
+    return p
+
+
+def bullet(doc, label, text, level=0, after=1):
+    from docx.enum.text import WD_TAB_ALIGNMENT
+    left = BUL if level == 0 else SUB
+    p = para(doc, after=after, left=left, first=-0.4, tabs=((left, WD_TAB_ALIGNMENT.LEFT),))
+    run(p, ("•" if level == 0 else "▪") + "\t", size=None if level == 0 else 7.5)
     if label:
         run(p, label, bold=True)
     if text:
         run(p, text)
 
 
-def float_picture(paragraph, path, width_cm, right_offset_cm=0, top_offset_cm=0):
+def float_picture(paragraph, path, width_cm, top_offset_cm=0):
     """Ajoute une image flottante (ancrée à droite) sans casser le flux texte."""
     r = paragraph.add_run()
-    inline_shape = r.add_picture(str(path), width=Cm(width_cm))
-    inline = inline_shape._inline
+    inline = r.add_picture(str(path), width=Cm(width_cm))._inline
     cx, cy = inline.extent.cx, inline.extent.cy
     anchor = OxmlElement("wp:anchor")
     for k, v in (("distT", "0"), ("distB", "0"), ("distL", "114300"), ("distR", "0"),
@@ -198,78 +229,91 @@ def float_picture(paragraph, path, width_cm, right_offset_cm=0, top_offset_cm=0)
     inline.getparent().replace(inline, anchor)
 
 
+PAGE_W, MARGIN_LR = 21.0, 1.5
+CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
+HEADER_INDENT = 1.2
+
+
 def build(out_stem):
+    from docx.enum.text import WD_TAB_ALIGNMENT
     doc = Document()
     s = doc.sections[0]
-    s.page_height, s.page_width = Cm(29.7), Cm(21.0)
-    s.top_margin = s.bottom_margin = Cm(1.2)
-    s.left_margin = s.right_margin = Cm(1.4)
+    s.page_height, s.page_width = Cm(29.7), Cm(PAGE_W)
+    s.top_margin, s.bottom_margin = Cm(1.0), Cm(0.7)
+    s.left_margin = s.right_margin = Cm(MARGIN_LR)
     normal = doc.styles["Normal"]
     normal.font.name = FONT
-    normal.font.size = Pt(9.5)
+    normal.font.size = Pt(SIZE)
 
-    # En-tête : nom, title, contact + photo flottante
-    p = doc.add_paragraph()
-    set_spacing(p, after=2)
+    # --- En-tête : nom, title, coordonnées, profil + photo à droite
+    p = para(doc, after=6, left=HEADER_INDENT)
     photo = ROOT / "assets" / "photo.png"
     if photo.exists():
-        float_picture(p, photo, width_cm=2.9)
-    run(p, CV["nom"], size=18, bold=True, color=ACCENT)
+        float_picture(p, photo, width_cm=3.5, top_offset_cm=0.05)
+    run(p, CV["nom"], size=15, bold=True, underline=True)
 
-    p = doc.add_paragraph(); set_spacing(p, after=4)
-    run(p, CV["title"], size=11, bold=True)
+    p = para(doc, after=4, left=HEADER_INDENT)
+    run(p, CV["title"], size=9.5, bold=True)
+
     for line in CV["contact"]:
-        p = doc.add_paragraph(); set_spacing(p, after=0)
-        run(p, line, size=9.5, color=GREY)
+        p = para(doc, left=HEADER_INDENT)
+        run(p, line)
 
-    p = doc.add_paragraph(); set_spacing(p, before=6, after=0, line=1.1)
-    run(p, "Profil : ", bold=True, color=ACCENT)
+    p = para(doc, before=6, left=HEADER_INDENT)
+    run(p, "PROFIL", bold=True)
+    p = para(doc, left=HEADER_INDENT)
     run(p, CV["profil"])
 
-    section(doc, "EXPÉRIENCES PROFESSIONNELLES")
-    for i, exp in enumerate(CV["experiences"]):
-        p = doc.add_paragraph(); set_spacing(p, before=5 if i else 1, after=0)
-        p.paragraph_format.keep_with_next = True
-        run(p, exp["dates"] + " | ", bold=True, color=ACCENT)
-        run(p, exp["poste"] + " @ " + exp["entreprise"], bold=True)
-        if exp["contrat"]:
-            run(p, " " + exp["contrat"])
-        if exp["perimetre"]:
-            p = doc.add_paragraph(); set_spacing(p, after=2)
-            run(p, exp["perimetre"], size=9, italic=True, color=GREY)
-        for label, text, subs in exp["bullets"]:
-            bullet(doc, label, text)
-            for sub in subs:
-                bullet(doc, "", sub, level=1)
+    rule(doc, before=5, after=5)
 
+    # --- Expériences
+    section(doc, "EXPÉRIENCES PROFESSIONNELLES", first=True)
+    for i, exp in enumerate(CV["experiences"]):
+        p = dated_line(doc, exp["dates"], before=6 if i else 0)
+        run(p, exp["poste"] + " @ " + exp["entreprise"], bold=True)
+        if exp["perimetre"]:
+            # le type de contrat se place sous la date, dans la colonne gauche
+            p = dated_line(doc, "", after=2)
+            p.runs[0].text = "\t"
+            run(p, exp["contrat"], size=8.5, italic=True)
+            run(p, "\t")
+            run(p, exp["perimetre"], size=9, italic=True)
+        else:
+            p.paragraph_format.space_after = Pt(2)
+        for label, text, subs in exp["bullets"]:
+            bullet(doc, label, text, after=1 if subs else 2)
+            for j, sub in enumerate(subs):
+                bullet(doc, "", sub, level=1, after=2 if j == len(subs) - 1 else 0)
+
+    # --- Formation
     section(doc, "FORMATION")
+    prev = None
     for dates, diplome, suite, ecole in CV["formation"]:
-        p = doc.add_paragraph(); set_spacing(p, after=0 if ecole else 1)
-        p.paragraph_format.tab_stops.add_tab_stop(Cm(2.6))
-        p.paragraph_format.left_indent = Cm(2.6)
-        p.paragraph_format.first_line_indent = Cm(-2.6)
-        run(p, dates, bold=True, color=ACCENT)
-        run(p, "\t")
+        p = dated_line(doc, dates, before=4 if prev and dates else 0)
         run(p, diplome, bold=True)
         run(p, suite)
         if ecole:
-            p = doc.add_paragraph(); set_spacing(p, after=2)
-            p.paragraph_format.left_indent = Cm(2.6)
-            run(p, ecole, italic=True, color=GREY)
+            p = para(doc, left=COL)
+            run(p, ecole)
+        prev = dates
 
-    section(doc, "COMPÉTENCES")
-    for label, text in CV["competences"]:
-        p = doc.add_paragraph(); set_spacing(p, after=1, line=1.05)
-        run(p, label, bold=True)
-        run(p, text)
+    # --- Compétences / Langues / Intérêts : rubrique en colonne gauche, sur la 1re ligne
+    def label_rows(title, rows, after=1):
+        rule(doc, length_cm=3.2, before=3, after=4)
+        for k, (label, text) in enumerate(rows):
+            p = para(doc, after=after, left=COL + LABEL, first=-(COL + LABEL),
+                     tabs=((COL, WD_TAB_ALIGNMENT.LEFT), (COL + LABEL, WD_TAB_ALIGNMENT.LEFT)))
+            run(p, title if k == 0 else "")
+            run(p, "\t")
+            run(p, label.rstrip(), bold=True)
+            run(p, "\t" + text)
 
-    section(doc, "LANGUES")
-    p = doc.add_paragraph(); set_spacing(p, after=0)
-    run(p, CV["langues"])
+    label_rows("COMPÉTENCES", CV["competences"], after=2)
+    label_rows("LANGUES", CV["langues"])
 
-    section(doc, "CENTRES D'INTÉRÊT")
-    p = doc.add_paragraph(); set_spacing(p, after=0)
-    run(p, CV["interets"])
+    rule(doc, length_cm=3.2, before=3, after=4)
+    p = para(doc, left=COL + LABEL, first=-(COL + LABEL), tabs=((COL + LABEL, WD_TAB_ALIGNMENT.LEFT),))
+    run(p, "CENTRES D'INTÉRÊT\t" + CV["interets"])
 
     out_dir = ROOT / "output"
     out_dir.mkdir(exist_ok=True)
