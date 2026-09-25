@@ -27,19 +27,20 @@ COL = 3.2
 BUL = COL + 0.45
 SUB = BUL + 0.55
 SIZE = 9.5
-LABEL = 3.5  # largeur des libellés Compétences / Langues
+LABEL = 3.3  # largeur des libellés Compétences / Langues
 
 CV = {
     "nom": "NICOLAS QI GUO",
-    "title": "CHEF DE PROJET SI | TRANSFORMATION DIGITALE, IA & AUTOMATISATION",
+    # Title en 2 niveaux : métier (grand) + spécialisation (sous-titre)
+    "title": ("CHEF DE PROJET SI", "TRANSFORMATION DIGITALE, IA & AUTOMATISATION"),
     "contact": [
         "Orléans, France | Mobilité Île-de-France",
-        "Tél. : +33 6 30 23 24 41 | E-mail : qi.guo@essec.edu",
+        "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI, 3 ans d'expérience en transformation digitale chez BNP Paribas et La Poste Groupe. "
+        "Chef de projet SI, 3 ans d'expérience chez BNP Paribas et La Poste Groupe. "
         "Pilotage de projets IA (GenAI, RAG, Copilot) et d'automatisation (RPA, Power Platform), "
-        "du recueil des besoins à la mise en production, gouvernance projet et conduite du changement."
+        "du besoin à la mise en production, et conduite du changement."
     ),
     "formation": [
         ("2024 – 2025",
@@ -105,29 +106,24 @@ CV = {
             "contrat": "",
             "perimetre": None,
             "bullets": [
-                ("", "Gestion d'une clientèle VIP internationale dans un environnement exigeant", []),
-                ("", "Sens du service, communication et adaptation en contexte multiculturel", []),
+                ("", "Gestion d'une clientèle VIP internationale : sens du service et adaptation en contexte multiculturel", []),
             ],
         },
     ],
     "competences": [
         ("Gestion de projet : ",
-         "cadrage, recueil des besoins, spécifications fonctionnelles, coordination métiers / IT, "
-         "recette, mise en production, gestion des risques, COPIL / COSUI"),
-        ("Méthodologies : ", "Cycle en V, Agile, hybride"),
-        ("Transformation & IA : ",
-         "GenAI, RAG, Copilot, RPA, POC, use cases, ROI, conduite du changement"),
+         "Cycle en V, Agile, hybride – cadrage, recette, mise en production, COPIL / COSUI"),
         ("Environnement SI : ",
-         "SI Finance, SIRH, SAP, intégration, sécurité, conformité, gouvernance SI"),
-        ("Outils : ", "Power Apps, Power Automate, Power BI, SharePoint"),
-        ("Langages (notions) : ", "Python, SQL, Java, PHP, C, C#, HTML/CSS"),
+         "SI Finance, SAP, intégration applicative, sécurité, conformité et gouvernance des SI"),
+        ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
+        ("Langages (notions) : ", "Python, SQL, Java, PHP, HTML/CSS, C, C#"),
     ],
     "langues": [
         ("Anglais", "Professionnel (TOEIC 955/990)"),
         ("Français", "Bilingue"),
         ("Chinois", "Langue maternelle"),
     ],
-    "interets": "Sport (crossfit, natation), voyages (18 pays visités), engagement associatif (protection animale)",
+    "interets": "Crossfit, natation, voyages (18 pays), engagement associatif (protection animale)",
 }
 
 
@@ -176,7 +172,7 @@ def rule(doc, length_cm=None, before=6, after=6):
 
 def section(doc, title, first=False):
     if not first:
-        rule(doc, length_cm=3.2, before=3, after=4)
+        rule(doc, length_cm=3.2, before=7, after=6)
     p = para(doc, after=5, keep=True)
     run(p, title)
 
@@ -229,9 +225,20 @@ def float_picture(paragraph, path, width_cm, top_offset_cm=0):
     inline.getparent().replace(inline, anchor)
 
 
+def text_width_cm(text, size, bold=False):
+    """Largeur d'un texte en Times (pour caler le bloc d'en-tête sur la ligne de title)."""
+    try:
+        import pymupdf
+        return pymupdf.Font("tibo" if bold else "tiro").text_length(text, fontsize=size) / 72 * 2.54
+    except ImportError:
+        return len(text) * size * (0.26 if bold else 0.24) / 72 * 2.54
+
+
 PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
-HEADER_INDENT = 1.2
+HEADER_INDENT = 0
+PHOTO_W = 5.0
+SUBTITLE_SIZE = 12
 
 
 def build(out_stem):
@@ -245,31 +252,40 @@ def build(out_stem):
     normal.font.name = FONT
     normal.font.size = Pt(SIZE)
 
-    # --- En-tête : nom, title, coordonnées, profil + photo à droite
-    p = para(doc, after=6, left=HEADER_INDENT)
+    # --- En-tête : title (grand) > nom > coordonnées > profil ; photo seule à droite.
+    # Tout le texte s'arrête avant la photo (retrait droit) pour laisser la colonne photo nette.
+    right = CONTENT_WIDTH - HEADER_INDENT - text_width_cm(CV["title"][1], SUBTITLE_SIZE, bold=True)
+
+    def head(after=0, before=0):
+        p = para(doc, before=before, after=after, left=HEADER_INDENT)
+        p.paragraph_format.right_indent = Cm(right)
+        return p
+
+    p = head()
     photo = ROOT / "assets" / "photo.png"
     if photo.exists():
-        float_picture(p, photo, width_cm=3.5, top_offset_cm=0.05)
-    run(p, CV["nom"], size=15, bold=True, underline=True)
+        float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.1)
+    run(p, CV["title"][0], size=17, bold=True)
+    p = head(after=7)
+    run(p, CV["title"][1], size=SUBTITLE_SIZE, bold=True)
 
-    p = para(doc, after=4, left=HEADER_INDENT)
-    run(p, CV["title"], size=9.5, bold=True)
-
+    p = head(after=1)
+    run(p, CV["nom"], size=11, bold=True)
     for line in CV["contact"]:
-        p = para(doc, left=HEADER_INDENT)
-        run(p, line)
+        p = head()
+        run(p, line, size=9)
 
-    p = para(doc, before=6, left=HEADER_INDENT)
-    run(p, "PROFIL", bold=True)
-    p = para(doc, left=HEADER_INDENT)
+    p = head(before=7)
+    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    run(p, "Profil : ", bold=True)
     run(p, CV["profil"])
 
-    rule(doc, before=5, after=5)
+    rule(doc, before=8, after=7)
 
     # --- Expériences
     section(doc, "EXPÉRIENCES PROFESSIONNELLES", first=True)
     for i, exp in enumerate(CV["experiences"]):
-        p = dated_line(doc, exp["dates"], before=6 if i else 0)
+        p = dated_line(doc, exp["dates"], before=9 if i else 0)
         run(p, exp["poste"] + " @ " + exp["entreprise"], bold=True)
         if exp["perimetre"]:
             # le type de contrat se place sous la date, dans la colonne gauche
@@ -299,7 +315,7 @@ def build(out_stem):
 
     # --- Compétences / Langues / Intérêts : rubrique en colonne gauche, sur la 1re ligne
     def label_rows(title, rows, after=1):
-        rule(doc, length_cm=3.2, before=3, after=4)
+        rule(doc, length_cm=3.2, before=7, after=6)
         for k, (label, text) in enumerate(rows):
             p = para(doc, after=after, left=COL + LABEL, first=-(COL + LABEL),
                      tabs=((COL, WD_TAB_ALIGNMENT.LEFT), (COL + LABEL, WD_TAB_ALIGNMENT.LEFT)))
@@ -311,7 +327,7 @@ def build(out_stem):
     label_rows("COMPÉTENCES", CV["competences"], after=2)
     label_rows("LANGUES", CV["langues"])
 
-    rule(doc, length_cm=3.2, before=3, after=4)
+    rule(doc, length_cm=3.2, before=7, after=6)
     p = para(doc, left=COL + LABEL, first=-(COL + LABEL), tabs=((COL + LABEL, WD_TAB_ALIGNMENT.LEFT),))
     run(p, "CENTRES D'INTÉRÊT\t" + CV["interets"])
 
