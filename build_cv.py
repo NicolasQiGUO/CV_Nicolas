@@ -37,9 +37,9 @@ CV = {
         "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI, 3 ans d'expérience en transformation digitale chez BNP Paribas et La Poste Groupe. "
-        "Pilotage de projets IA (GenAI, RAG, Copilot) et d'automatisation (RPA, Power Platform), "
-        "du besoin à la mise en production, gouvernance et conduite du changement."
+        "Chef de projet SI avec 3 ans d'expérience en transformation digitale, spécialisé dans le pilotage "
+        "de projets IA & automatisation. Expérience de bout en bout, du cadrage à la mise en production, "
+        "en coordination transverse Métiers–IT."
     ),
     "formation": [
         ("2024 – 2025",
@@ -71,8 +71,8 @@ CV = {
                  "recueil et formalisation des besoins, coordination transverse métiers / IT, "
                  "conduite de POC, coordination et suivi de l'industrialisation de 3 solutions IA "
                  "(GenAI, RAG, Copilot), reporting auprès des instances de gouvernance", []),
-                ("Transformation digitale et conduite du changement : ",
-                 "contribution au déploiement d'un programme IA à grande échelle (5 000+ collaborateurs), "
+                ("Conduite du changement ",
+                 "dans le cadre du déploiement d'un programme IA à grande échelle (5\u00a0000+\u00a0collaborateurs) : "
                  "animation d'un réseau de 70+ ambassadeurs IA, sessions d'onboarding et d'acculturation, "
                  "événements communautaires", []),
             ],
@@ -172,7 +172,7 @@ def rule(doc, length_cm=None, before=6, after=6):
 
 def section(doc, title, first=False):
     if not first:
-        rule(doc, length_cm=3.2, before=7, after=6)
+        rule(doc, length_cm=3.2, before=10, after=8)
     p = para(doc, after=5, keep=True)
     run(p, title)
 
@@ -313,7 +313,7 @@ def build(out_stem):
 
     # --- Compétences / Langues / Intérêts : rubrique en colonne gauche, sur la 1re ligne
     def label_rows(title, rows, after=1):
-        rule(doc, length_cm=3.2, before=7, after=6)
+        rule(doc, length_cm=3.2, before=10, after=8)
         for k, (label, text) in enumerate(rows):
             p = para(doc, after=after, left=COL + LABEL, first=-(COL + LABEL),
                      tabs=((COL, WD_TAB_ALIGNMENT.LEFT), (COL + LABEL, WD_TAB_ALIGNMENT.LEFT)))
@@ -325,7 +325,7 @@ def build(out_stem):
     label_rows("COMPÉTENCES", CV["competences"], after=2)
     label_rows("LANGUES", CV["langues"])
 
-    rule(doc, length_cm=3.2, before=7, after=6)
+    rule(doc, length_cm=3.2, before=10, after=8)
     p = para(doc, left=COL + LABEL, first=-(COL + LABEL), tabs=((COL + LABEL, WD_TAB_ALIGNMENT.LEFT),))
     run(p, "CENTRES D'INTÉRÊT\t" + CV["interets"])
 
