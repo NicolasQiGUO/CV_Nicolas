@@ -31,16 +31,15 @@ LABEL = 3.3  # largeur des libellés Compétences / Langues
 
 CV = {
     "nom": "NICOLAS QI GUO",
-    # Title en 2 niveaux : métier (grand) + spécialisation (sous-titre)
-    "title": ("CHEF DE PROJET SI", "TRANSFORMATION DIGITALE, IA & AUTOMATISATION"),
+    "title": "CHEF DE PROJET SI | TRANSFORMATION IA & AUTOMATISATION",
     "contact": [
         "Orléans, France | Mobilité Île-de-France",
         "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI, 3 ans d'expérience chez BNP Paribas et La Poste Groupe. "
+        "Chef de projet SI, 3 ans d'expérience en transformation digitale chez BNP Paribas et La Poste Groupe. "
         "Pilotage de projets IA (GenAI, RAG, Copilot) et d'automatisation (RPA, Power Platform), "
-        "du besoin à la mise en production, et conduite du changement."
+        "du besoin à la mise en production, gouvernance et conduite du changement."
     ),
     "formation": [
         ("2024 – 2025",
@@ -112,7 +111,8 @@ CV = {
     ],
     "competences": [
         ("Gestion de projet : ",
-         "Cycle en V, Agile, hybride – cadrage, recette, mise en production, COPIL / COSUI"),
+         "Pilotage de bout en bout : cadrage, recueil des besoins, recette, mise en production\n"
+         "Gouvernance (COPIL / COSUI), gestion des risques – Cycle en V, Agile, hybride"),
         ("Environnement SI : ",
          "SI Finance, SAP, intégration applicative, sécurité, conformité et gouvernance des SI"),
         ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
@@ -237,8 +237,8 @@ def text_width_cm(text, size, bold=False):
 PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
 HEADER_INDENT = 0
-PHOTO_W = 5.0
-SUBTITLE_SIZE = 12
+PHOTO_W = 4.4
+TITLE_SIZE = 11.5
 
 
 def build(out_stem):
@@ -252,9 +252,9 @@ def build(out_stem):
     normal.font.name = FONT
     normal.font.size = Pt(SIZE)
 
-    # --- En-tête : title (grand) > nom > coordonnées > profil ; photo seule à droite.
+    # --- En-tête : title > nom > coordonnées > profil ; photo seule à droite.
     # Tout le texte s'arrête avant la photo (retrait droit) pour laisser la colonne photo nette.
-    right = CONTENT_WIDTH - HEADER_INDENT - text_width_cm(CV["title"][1], SUBTITLE_SIZE, bold=True)
+    right = CONTENT_WIDTH - HEADER_INDENT - text_width_cm(CV["title"], TITLE_SIZE, bold=True) - 0.05
 
     def head(after=0, before=0):
         p = para(doc, before=before, after=after, left=HEADER_INDENT)
@@ -265,12 +265,10 @@ def build(out_stem):
     photo = ROOT / "assets" / "photo.png"
     if photo.exists():
         float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.1)
-    run(p, CV["title"][0], size=17, bold=True)
-    p = head(after=7)
-    run(p, CV["title"][1], size=SUBTITLE_SIZE, bold=True)
+    run(p, CV["title"], size=TITLE_SIZE, bold=True)
 
-    p = head(after=1)
-    run(p, CV["nom"], size=11, bold=True)
+    p = head(before=6, after=1)
+    run(p, CV["nom"], size=10.5, bold=True)
     for line in CV["contact"]:
         p = head()
         run(p, line, size=9)
