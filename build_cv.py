@@ -37,9 +37,8 @@ CV = {
         "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI avec 3 ans d'expérience en transformation digitale, spécialisé dans le pilotage "
-        "de projets IA & automatisation. Expérience de bout en bout, du cadrage à la mise en production, "
-        "en coordination transverse Métiers–IT."
+        "Chef de projet SI, 3 ans d'expérience en transformation digitale (BNP\u00a0Paribas, La\u00a0Poste), "
+        "spécialisé dans le pilotage de bout en bout de projets IA et d'automatisation."
     ),
     "formation": [
         ("2024 – 2025",
@@ -111,7 +110,7 @@ CV = {
     ],
     "competences": [
         ("Gestion de projet : ",
-         "Pilotage de bout en bout : cadrage, recueil des besoins, recette, mise en production\n"
+         "Cadrage, recueil des besoins, spécifications, recette, mise en production\n"
          "Gouvernance (COPIL / COSUI), gestion des risques – Cycle en V, Agile, hybride"),
         ("Environnement SI : ",
          "SI Finance, SAP, intégration applicative, sécurité, conformité et gouvernance des SI"),
@@ -238,7 +237,7 @@ PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
 HEADER_INDENT = 0
 PHOTO_W = 4.4
-TITLE_SIZE = 11.5
+TITLE_SIZE = 10.5
 
 
 def build(out_stem):
@@ -268,7 +267,7 @@ def build(out_stem):
     run(p, CV["title"], size=TITLE_SIZE, bold=True)
 
     p = head(before=6, after=1)
-    run(p, CV["nom"], size=10.5, bold=True)
+    run(p, CV["nom"], size=10, bold=True)
     for line in CV["contact"]:
         p = head()
         run(p, line, size=9)
