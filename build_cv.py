@@ -31,14 +31,15 @@ LABEL = 3.3  # largeur des libellés Compétences / Langues
 
 CV = {
     "nom": "NICOLAS QI GUO",
-    "title": "CHEF DE PROJET SI | TRANSFORMATION IA & AUTOMATISATION",
+    "title": "CHEF DE PROJET SI | TRANSFORMATION DIGITALE & IA",
     "contact": [
         "Orléans, France | Mobilité Île-de-France",
         "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI, 3 ans d'expérience en transformation digitale (BNP\u00a0Paribas, La\u00a0Poste), "
-        "spécialisé dans le pilotage de bout en bout de projets IA et d'automatisation."
+        "Chef de projet SI avec 3 ans d'expérience en transformation digitale au sein de grands groupes "
+        "(BNP\u00a0Paribas, La\u00a0Poste). Pilotage de projets de bout en bout, coordination transverse "
+        "Métiers–IT, gouvernance et conduite du changement."
     ),
     "formation": [
         ("2024 – 2025",
@@ -237,7 +238,7 @@ PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
 HEADER_INDENT = 0
 PHOTO_W = 4.4
-TITLE_SIZE = 10.5
+TITLE_SIZE = 11.5
 
 
 def build(out_stem):
