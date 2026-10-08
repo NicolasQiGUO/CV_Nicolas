@@ -64,8 +64,8 @@ CV = {
             "perimetre": "Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécurité financière)",
             "bullets": [
                 ("Structuration et coordination des initiatives IA & RPA : ",
-                 "conception et mise en place d'un dispositif de collecte, de qualification et de priorisation des use cases "
-                 "(valeur business, ROI, faisabilité technique) ; 20+\u00a0use\u00a0cases identifiés, "
+                 "conception et mise en place d'un dispositif de collecte, de qualification et de priorisation des use cases ; "
+                 "20+\u00a0use\u00a0cases identifiés, "
                  "dont 3 retenus pour un lancement en projet", []),
                 ("Pilotage et gouvernance des projets IA : ",
                  "recueil et formalisation des besoins, coordination transverse métiers / IT, "
