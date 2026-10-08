@@ -66,11 +66,11 @@ CV = {
                 ("Structuration et coordination des initiatives IA & RPA : ",
                  "conception et mise en place d'un dispositif de collecte, de qualification et de priorisation des use cases ; "
                  "20+\u00a0use\u00a0cases identifiés, "
-                 "dont 3 retenus pour un lancement en projet", []),
+                 "dont 3 retenus et lancés\u00a0en\u00a0projet", []),
                 ("Pilotage et gouvernance des projets IA : ",
-                 "recueil et formalisation des besoins, coordination transverse métiers / IT, "
-                 "conduite de POC, coordination et suivi du déploiement de 3 solutions IA "
-                 "(GenAI, RAG, Copilot), reporting auprès des instances de gouvernance", []),
+                 "recueil et formalisation des besoins, coordination transverse Métiers–IT, "
+                 "conduite de POC, accompagnement du déploiement de 3 solutions IA "
+                 "(GenAI, RAG, Copilot) et reporting auprès des instances de gouvernance", []),
                 ("Conduite du changement ",
                  "dans le cadre du déploiement d'un programme IA transverse à grande échelle (5\u00a0000+\u00a0collaborateurs) : "
                  "animation d'un réseau de 70+ ambassadeurs IA, sessions d'onboarding et d'acculturation, "
@@ -86,12 +86,12 @@ CV = {
             "bullets": [
                 ("Pilotage de projets d'automatisation (RPA & Power Platform), dont 2 de bout en bout :", "", [
                     "Recueil et analyse des besoins métiers, rédaction des cahiers des charges et spécifications fonctionnelles et techniques",
-                    "Coordination métiers / IT pour la coconception des solutions",
+                    "Coordination Métiers–IT pour la coconception des solutions",
                     "Pilotage du développement, de la recette et de la mise en production",
                     "Gestion des risques et animation des instances projets (COSUI, COPIL)",
                     "Accompagnement du déploiement auprès des fonctions Finance et RH",
                 ]),
-                ("Phase RUN :", "", [
+                ("Pilotage du RUN :", "", [
                     "Monitoring quotidien d'une dizaine de robots en production et gestion des incidents",
                     "Suivi de la performance des solutions déployées (ROI, fiabilité, adoption)",
                     "Identification et mise en œuvre d'axes d'amélioration continue",
