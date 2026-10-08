@@ -237,9 +237,9 @@ def text_width_cm(text, size, bold=False):
 PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
 HEADER_INDENT = 0
-PHOTO_W = 3.0
-PHOTO_GAP = 0.7
-TITLE_SIZE = 10.5
+PHOTO_W = 3.8
+PHOTO_GAP = 0.6
+TITLE_SIZE = 10
 
 
 def build(out_stem):
@@ -259,7 +259,7 @@ def build(out_stem):
     title_w = text_width_cm(CV["title"], TITLE_SIZE, bold=True)
     title_beside_photo = title_w + PHOTO_W + PHOTO_GAP <= CONTENT_WIDTH - HEADER_INDENT
     right = (CONTENT_WIDTH - HEADER_INDENT - title_w - 0.05) if title_beside_photo else PHOTO_W + PHOTO_GAP
-    photo = ROOT / "assets" / "photo_portrait.png"
+    photo = ROOT / "assets" / "photo_header.png"
 
     def head(after=0, before=0):
         p = para(doc, before=before, after=after, left=HEADER_INDENT)
@@ -284,7 +284,7 @@ def build(out_stem):
     run(p, "Profil : ", bold=True)
     run(p, CV["profil"])
 
-    rule(doc, before=20, after=7)
+    rule(doc, before=12, after=7)
 
     # --- Expériences
     section(doc, "EXPÉRIENCES PROFESSIONNELLES", first=True)
