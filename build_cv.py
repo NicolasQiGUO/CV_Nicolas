@@ -31,15 +31,15 @@ LABEL = 3.3  # largeur des libellés Compétences / Langues
 
 CV = {
     "nom": "NICOLAS QI GUO",
-    "title": "CHEF DE PROJET SI | TRANSFORMATION DIGITALE & IA",
+    "title": "CHEF DE PROJET SI | TRANSFORMATION DIGITALE | IA & AUTOMATISATION",
     "contact": [
         "Orléans, France | Mobilité Île-de-France",
         "+33 6 30 23 24 41 | qi.guo@essec.edu",
     ],
     "profil": (
-        "Chef de projet SI avec 3 ans d'expérience en transformation digitale au sein de grands groupes "
-        "(BNP\u00a0Paribas, La\u00a0Poste). Pilotage de projets de bout en bout, coordination transverse "
-        "Métiers–IT, gouvernance et conduite du changement."
+        "3 ans d'expérience au sein de grands groupes (BNP\u00a0Paribas, La\u00a0Poste). "
+        "Pilotage de projets de bout en bout, coordination transverse Métiers–IT, "
+        "gouvernance et conduite du changement."
     ),
     "formation": [
         ("2024 – 2025",
@@ -237,8 +237,9 @@ def text_width_cm(text, size, bold=False):
 PAGE_W, MARGIN_LR = 21.0, 1.5
 CONTENT_WIDTH = PAGE_W - 2 * MARGIN_LR
 HEADER_INDENT = 0
-PHOTO_W = 4.4
-TITLE_SIZE = 11.5
+PHOTO_W = 4.0
+PHOTO_GAP = 0.6
+TITLE_SIZE = 11
 
 
 def build(out_stem):
@@ -253,21 +254,26 @@ def build(out_stem):
     normal.font.size = Pt(SIZE)
 
     # --- En-tête : title > nom > coordonnées > profil ; photo seule à droite.
-    # Tout le texte s'arrête avant la photo (retrait droit) pour laisser la colonne photo nette.
-    right = CONTENT_WIDTH - HEADER_INDENT - text_width_cm(CV["title"], TITLE_SIZE, bold=True) - 0.05
+    # Title court : il tient à côté de la photo et le bloc texte s'aligne sur sa largeur.
+    # Title long : il occupe toute la largeur et la photo démarre à la ligne du nom.
+    title_w = text_width_cm(CV["title"], TITLE_SIZE, bold=True)
+    title_beside_photo = title_w + PHOTO_W + PHOTO_GAP <= CONTENT_WIDTH - HEADER_INDENT
+    right = (CONTENT_WIDTH - HEADER_INDENT - title_w - 0.05) if title_beside_photo else PHOTO_W + PHOTO_GAP
+    photo = ROOT / "assets" / "photo.png"
 
     def head(after=0, before=0):
         p = para(doc, before=before, after=after, left=HEADER_INDENT)
         p.paragraph_format.right_indent = Cm(right)
         return p
 
-    p = head()
-    photo = ROOT / "assets" / "photo.png"
-    if photo.exists():
+    p = head() if title_beside_photo else para(doc, left=HEADER_INDENT)
+    if title_beside_photo and photo.exists():
         float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.1)
     run(p, CV["title"], size=TITLE_SIZE, bold=True)
 
     p = head(before=6, after=1)
+    if not title_beside_photo and photo.exists():
+        float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.05)
     run(p, CV["nom"], size=10, bold=True)
     for line in CV["contact"]:
         p = head()
@@ -278,7 +284,7 @@ def build(out_stem):
     run(p, "Profil : ", bold=True)
     run(p, CV["profil"])
 
-    rule(doc, before=8, after=7)
+    rule(doc, before=14, after=7)
 
     # --- Expériences
     section(doc, "EXPÉRIENCES PROFESSIONNELLES", first=True)
