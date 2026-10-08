@@ -64,15 +64,15 @@ CV = {
             "perimetre": "Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécurité financière)",
             "bullets": [
                 ("Structuration et coordination des initiatives IA & RPA : ",
-                 "co-construction d'un dispositif de qualification et de priorisation des use cases "
-                 "(valeur business, ROI, faisabilité technique) ; 20+ use cases identifiés, "
+                 "conception et mise en place d'un dispositif de collecte, de qualification et de priorisation des use cases "
+                 "(valeur business, ROI, faisabilité technique) ; 20+\u00a0use\u00a0cases identifiés, "
                  "dont 3 retenus pour un lancement en projet", []),
                 ("Pilotage et gouvernance des projets IA : ",
                  "recueil et formalisation des besoins, coordination transverse métiers / IT, "
-                 "conduite de POC, coordination et suivi de l'industrialisation de 3 solutions IA "
+                 "conduite de POC, coordination et suivi du déploiement de 3 solutions IA "
                  "(GenAI, RAG, Copilot), reporting auprès des instances de gouvernance", []),
                 ("Conduite du changement ",
-                 "dans le cadre du déploiement d'un programme IA à grande échelle (5\u00a0000+\u00a0collaborateurs) : "
+                 "dans le cadre du déploiement d'un programme IA transverse à grande échelle (5\u00a0000+\u00a0collaborateurs) : "
                  "animation d'un réseau de 70+ ambassadeurs IA, sessions d'onboarding et d'acculturation, "
                  "événements communautaires", []),
             ],
@@ -85,7 +85,7 @@ CV = {
             "perimetre": "Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, SIRH, SAP)",
             "bullets": [
                 ("Pilotage de projets d'automatisation (RPA & Power Platform), dont 2 de bout en bout :", "", [
-                    "Recueil et analyse des besoins métiers, rédaction des cahiers des charges et spécifications fonctionnelles",
+                    "Recueil et analyse des besoins métiers, rédaction des cahiers des charges et spécifications fonctionnelles et techniques",
                     "Coordination métiers / IT pour la coconception des solutions",
                     "Pilotage du développement, de la recette et de la mise en production",
                     "Gestion des risques et animation des instances projets (COSUI, COPIL)",
