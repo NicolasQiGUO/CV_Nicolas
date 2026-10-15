@@ -63,6 +63,8 @@ Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, 
   Power BI : utilisation de rapports uniquement. Teams : pas de paramétrage déclaré (création de canaux chez BNP).
 
 ## Transverse (confirmé, sans attribution précise)
+Méthodologies : cycle en V et approche hybride en pratique ; Agile = connaissances théoriques uniquement
+(pas de sprints, cérémonies ni backlog pratiqués) → écrire « notions Agile », jamais « maîtrise ».
 Animation d'ateliers de recueil des besoins ; rédaction de documentation / supports utilisateurs ; formation d'utilisateurs.
 
 ## 2018–2022 · Retail & VIP Guest Relations @ Louis Vuitton
