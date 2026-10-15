@@ -15,7 +15,7 @@ cv["profil"] = (
     "3 ans d'expérience au sein de grands groupes (BNP Paribas, La Poste). "
     "Pilotage de projets de bout en bout, coordination transverse Métiers–IT, "
     "gouvernance et conduite du changement. Double compétence fonctionnelle et technique : "
-    "développement applicatif (projets académiques en Java, C#, PHP, SQL) et low-code (Power Platform)."
+    "bases en développement applicatif (projets académiques en Java, C#, C, PHP, SQL) et low-code (Power Platform)."
 )
 
 # Master 2 Paris Cité : projets académiques, classés par pertinence pour des projets web
@@ -34,7 +34,7 @@ cv["competences"] = [
     ("Environnement SI : ",
      "SI Finance, SAP (S/4HANA, ECC), intégration applicative, gouvernance des SI"),
     ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
-    ("Développement : ", "Java, C#, C, PHP, HTML/CSS, SQL (PostgreSQL, Oracle) ; Python (notions)"),
+    ("Langages (notions) : ", "Java, C#, C, PHP, HTML/CSS, SQL (PostgreSQL, Oracle), Python"),
 ]
 
 if __name__ == "__main__":
