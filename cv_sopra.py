@@ -1,8 +1,8 @@
-"""Version ciblée Sopra HR Software — Consultant(e) SIRH junior (reconversion).
+"""Version ciblée Sopra HR Software — poste ouvert à la reconversion vers le SIRH.
 
-Part du CV général (build_cv.CV). Positionnement « consultant SI qui se spécialise en SIRH » :
-liens réels avec le SIRH (périmètre La Poste, NOEMIE alimenté par le SI RH, déploiement RH),
-analyse / recette / évolutions-corrections, BNP resserré pour éviter l'effet surqualifié.
+Part du CV général (build_cv.CV) avec des retouches légères : on garde l'identité
+« Chef de projet SI » et les responsabilités de pilotage (compétences transférables),
+on ajoute le lien réel avec le SI RH (NOEMIE) et l'orientation SIRH dans le profil.
 """
 import copy
 
@@ -10,55 +10,44 @@ import build_cv
 
 cv = copy.deepcopy(build_cv.CV)
 
-cv["title"] = "CONSULTANT SIRH | SI RH & TRANSFORMATION DIGITALE"
+cv["title"] = "CHEF DE PROJET SI | APPLICATIONS MÉTIERS & SI RH"
 
 cv["profil"] = (
-    "3 ans d'expérience en projets SI au sein de grands groupes (BNP Paribas, La Poste), "
-    "dont des solutions s'appuyant sur le SI RH. Analyse des besoins, spécifications, recette, "
-    "évolutions et corrections, en lien avec les métiers et les équipes techniques. "
-    "Bases en low-code, programmation et bases de données."
+    "3 ans d'expérience au sein de grands groupes (BNP Paribas, La Poste) en pilotage de projets "
+    "SI de bout en bout, de l'analyse des besoins à la recette et au déploiement, avec une pratique du "
+    "low-code et des flux de données SI RH. Souhaite mettre cette double compétence "
+    "au service de projets SIRH."
 )
 
 m2 = cv["formation"][1]
 cv["formation"][1] = (*m2[:4], "Enseignements : ERP (SAP), bases de données, programmation, gestion de projet IT")
 
-bnp = cv["experiences"][0]
-bnp["bullets"] = [
-    ("Qualification et priorisation des use cases IA & RPA : ",
-     "conception du dispositif de collecte et de qualification ; 20+ use cases identifiés, 3 lancés en projet", []),
-    ("Coordination de projets IA : ",
-     "recueil des besoins, coordination Métiers–IT, POC, organisation des recettes utilisateurs et "
-     "accompagnement du déploiement (GenAI, RAG, Copilot)", []),
-    ("Conduite du changement : ",
-     "programme IA transverse (5 000+ collaborateurs), animation de 70+ ambassadeurs IA", []),
-]
-
+# La Poste : contenu du CV général + projet NOEMIE (application alimentée par le SI RH)
 la_poste = cv["experiences"][1]
-la_poste["bullets"] = [
-    ("Pilotage de projets d'automatisation (RPA & Power Platform), dont 2 de bout en bout :", "", [
-        "Analyse des besoins métiers (Finance, RH), cahiers des charges et spécifications fonctionnelles",
-        "Développement low-code (Power Apps, Power Automate, SharePoint) et coordination Métiers–IT",
-        "Stratégie et cahiers de recette, tests, suivi des anomalies et validation",
-        "Mise en production, accompagnement du déploiement et documentation utilisateurs (Finance, RH)",
-    ]),
-    ("Projet NOEMIE ",
-     "(cartes de paiement des managers) : solution Power Platform alimentée par le SI RH "
-     "(SharePoint, circuits d'approbation, notifications) ; cadrage, recette, mise en production", []),
-    ("Pilotage du RUN :", "", [
-        "Monitoring d'une dizaine de robots en production, gestion des incidents et support fonctionnel",
-        "Suivi des corrections et évolutions avec la TMA / les prestataires, amélioration continue",
-    ]),
-]
+la_poste["bullets"].insert(1, (
+    "Projet NOEMIE ",
+    "(cartes de paiement des managers) : solution Power Platform alimentée par le SI RH "
+    "(SharePoint, circuits d'approbation, notifications) ; cadrage, recette, mise en production", []))
 
+bnp = cv["experiences"][0]
+label, text, subs = bnp["bullets"][0]
+bnp["bullets"][0] = (label,
+    "conception et mise en place d'un dispositif de collecte, qualification et priorisation "
+    "des use cases ; 20+\u00a0use\u00a0cases identifiés, 3 lancés en projet", subs)
+
+gestion = build_cv.CV["competences"][0]
 cv["competences"] = [
-    ("Analyse & recette : ", "Recueil des besoins, spécifications, cahiers de recette, tests, gestion des anomalies"),
-    ("Gestion de projet : ", "Planning, COPIL / COSUI, risques, documentation – Cycle en V, hybride"),
-    ("Environnement SI : ", "SIRH (flux de données RH), SI Finance, SAP, Power Platform, SharePoint"),
+    (gestion[0], gestion[1].replace("gestion des risques – Cycle en V, Agile, hybride",
+                                    "risques – Cycle en V, hybride, Agile (notions)")),
+    ("Environnement SI : ", "SI Finance, interfaces SI RH, SAP, intégration applicative, gouvernance des SI"),
+    build_cv.CV["competences"][2],   # Outils digitaux
     build_cv.CV["competences"][3],   # Langages (notions)
 ]
+assert "Agile (notions)" in cv["competences"][0][1]
 
 if __name__ == "__main__":
     build_cv.CV = cv
     build_cv.TITLE_SIZE = 11.5
+    build_cv.SECTION_GAP = (6, 5)
     for path in build_cv.build("CV_NicolasQiGUO_SopraHR"):
         print(path)
