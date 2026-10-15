@@ -15,13 +15,14 @@ cv["profil"] = (
     "3 ans d'expérience au sein de grands groupes (BNP Paribas, La Poste). "
     "Pilotage de projets de bout en bout, coordination transverse Métiers–IT, "
     "gouvernance et conduite du changement. Double compétence fonctionnelle et technique : "
-    "bases en développement applicatif (projets académiques en Java, C#, C, PHP, SQL) et low-code (Power Platform)."
+    "développement low-code (Power Platform) et pratique du développement applicatif en projets "
+    "académiques (Java, C#, C, PHP, SQL)."
 )
 
 # Master 2 Paris Cité : projets académiques, classés par pertinence pour des projets web
 m2 = cv["formation"][1]
 cv["formation"][1] = (*m2[:4],
-    "Projets : e-commerce (PHP/HTML/CSS), BDD médicale (PostgreSQL/Oracle), "
+    "Projets : site e-commerce (PHP), BDD médicale (PostgreSQL/Oracle), "
     "jeux (Java/C#), calcul d'impôt (C)")
 
 la_poste = cv["experiences"][1]
