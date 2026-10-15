@@ -47,7 +47,8 @@ Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, 
   dans SAP des notes de crédit. Solution RPA + Power Platform : la partie RPA est développée par l'équipe dev ; Nico
   a réalisé l'ensemble du développement Power Platform (interface Power Apps + flux Power Automate
   interconnectant les briques de la solution, dont SharePoint), après autoformation (IT indisponible). Résultat : de plusieurs semaines à un
-  traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois ; impact > 700 000 €.
+  traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois, pour un
+  montant total > 700 000 € de notes de crédit traitées (volume traité, PAS un gain / une économie).
   Devenu référent Power Platform de l'équipe.
 - NOEMIE : gestion administrative des cartes de paiement des managers/directeurs ; 100 % Power Platform +
   SharePoint (données SI RH intégrées dans SharePoint, flux Power Automate : statuts, notifications, circuits

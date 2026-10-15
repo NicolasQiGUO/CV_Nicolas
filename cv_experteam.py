@@ -35,7 +35,7 @@ la_poste["bullets"].insert(1, (
     "Projet e-Note de crédit ",
     "(digitalisation des notes de crédit, RPA + Power Platform) : développement de toute la partie "
     "Power Platform – interface Power Apps et flux Power Automate reliant les briques (RPA, SharePoint) ; "
-    "délai de plusieurs semaines à quasi instantané, impact > 700\u00a0k€", []))
+    "délai de plusieurs semaines à quasi instantané, > 700\u00a0k€ de notes de crédit traitées", []))
 
 label, text, subs = bnp["bullets"][0]
 bnp["bullets"][0] = (label,
