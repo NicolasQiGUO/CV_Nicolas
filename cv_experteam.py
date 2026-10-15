@@ -31,12 +31,16 @@ bnp["bullets"][2] = (
     "sessions d'acculturation", [])
 
 la_poste = cv["experiences"][1]
-subs = la_poste["bullets"][0][2]
-i = subs.index("Pilotage du développement, de la recette et de la mise en production")
-subs[i] = "Développement low-code (Power Apps, Power Automate, SharePoint), recette et mise en production"
 la_poste["bullets"].insert(1, (
-    "Projet e-Note de crédit : ",
-    "traitement de plusieurs semaines à quasi instantané, impact financier > 700\u00a0k€", []))
+    "Projet e-Note de crédit ",
+    "(digitalisation des notes de crédit, RPA + Power Platform) : développement de toute la partie "
+    "Power Platform – interface Power Apps et flux Power Automate reliant les briques (RPA, SharePoint) ; "
+    "délai de plusieurs semaines à quasi instantané, impact > 700\u00a0k€", []))
+
+label, text, subs = bnp["bullets"][0]
+bnp["bullets"][0] = (label,
+    "conception et mise en place d'un dispositif de collecte, qualification et priorisation "
+    "des use cases ; 20+\u00a0use\u00a0cases identifiés, 3 lancés en projet", subs)
 
 cv["competences"] = [
     ("Microsoft 365 : ", "Power Apps, Power Automate, SharePoint (listes, sites), Teams, Copilot"),

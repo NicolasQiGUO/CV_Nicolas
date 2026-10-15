@@ -44,8 +44,9 @@ Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, 
   fonctionnelles et techniques, coordination Métiers–IT, pilotage du développement, recette, mise en
   production, planning, risques, COSUI/COPIL, accompagnement du déploiement (Finance, RH).
 - e-Note de crédit : digitalisation de la création (achats, agences Colipost IDF) et de la comptabilisation
-  dans SAP des notes de crédit. Autoformation Power Apps / Power Automate pour développer soi-même l'interface
-  et des flux reliant les briques à SharePoint (IT indisponible). Résultat : de plusieurs semaines à un
+  dans SAP des notes de crédit. Solution RPA + Power Platform : la partie RPA est développée par l'équipe dev ; Nico
+  a réalisé l'ensemble du développement Power Platform (interface Power Apps + flux Power Automate
+  interconnectant les briques de la solution, dont SharePoint), après autoformation (IT indisponible). Résultat : de plusieurs semaines à un
   traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois ; impact > 700 000 €.
   Devenu référent Power Platform de l'équipe.
 - NOEMIE : gestion administrative des cartes de paiement des managers/directeurs ; 100 % Power Platform +
