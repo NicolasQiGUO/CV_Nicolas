@@ -28,6 +28,7 @@ BUL = COL + 0.45
 SUB = BUL + 0.55
 SIZE = 9.5
 LABEL = 3.3  # largeur des libellés Compétences / Langues
+SECTION_GAP = (10, 8)  # espace (pt) avant / après le filet entre rubriques
 
 CV = {
     "nom": "NICOLAS QI GUO",
@@ -172,7 +173,7 @@ def rule(doc, length_cm=None, before=6, after=6):
 
 def section(doc, title, first=False):
     if not first:
-        rule(doc, length_cm=3.2, before=10, after=8)
+        rule(doc, length_cm=3.2, before=SECTION_GAP[0], after=SECTION_GAP[1])
     p = para(doc, after=5, keep=True)
     run(p, title)
 
@@ -308,18 +309,22 @@ def build(out_stem):
     # --- Formation
     section(doc, "FORMATION")
     prev = None
-    for dates, diplome, suite, ecole in CV["formation"]:
+    for dates, diplome, suite, ecole, *extra in CV["formation"]:
         p = dated_line(doc, dates, before=4 if prev and dates else 0)
         run(p, diplome, bold=True)
         run(p, suite)
         if ecole:
             p = para(doc, left=COL)
             run(p, ecole)
+        if extra and extra[0]:
+            # ligne optionnelle (ex. projets académiques) sous l'établissement
+            p = para(doc, before=1, left=COL)
+            run(p, extra[0], size=9, italic=True)
         prev = dates
 
     # --- Compétences / Langues / Intérêts : rubrique en colonne gauche, sur la 1re ligne
     def label_rows(title, rows, after=1):
-        rule(doc, length_cm=3.2, before=10, after=8)
+        rule(doc, length_cm=3.2, before=SECTION_GAP[0], after=SECTION_GAP[1])
         for k, (label, text) in enumerate(rows):
             p = para(doc, after=after, left=COL + LABEL, first=-(COL + LABEL),
                      tabs=((COL, WD_TAB_ALIGNMENT.LEFT), (COL + LABEL, WD_TAB_ALIGNMENT.LEFT)))
@@ -331,7 +336,7 @@ def build(out_stem):
     label_rows("COMPÉTENCES", CV["competences"], after=2)
     label_rows("LANGUES", CV["langues"])
 
-    rule(doc, length_cm=3.2, before=10, after=8)
+    rule(doc, length_cm=3.2, before=SECTION_GAP[0], after=SECTION_GAP[1])
     p = para(doc, left=COL + LABEL, first=-(COL + LABEL), tabs=((COL + LABEL, WD_TAB_ALIGNMENT.LEFT),))
     run(p, "CENTRES D'INTÉRÊT\t" + CV["interets"])
 
