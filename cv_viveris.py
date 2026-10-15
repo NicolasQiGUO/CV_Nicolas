@@ -22,7 +22,7 @@ cv["profil"] = (
 # Master 2 Paris Cité : projets académiques, classés par pertinence pour des projets web
 m2 = cv["formation"][1]
 cv["formation"][1] = (*m2[:4],
-    "Projets : site e-commerce (PHP), BDD médicale (PostgreSQL/Oracle), "
+    "Projets de développement : site e-commerce (PHP), BDD médicale (SQL), "
     "jeux (Java/C#), calcul d'impôt (C)")
 
 la_poste = cv["experiences"][1]
@@ -35,7 +35,7 @@ cv["competences"] = [
     ("Environnement SI : ",
      "SI Finance, SAP (S/4HANA, ECC), intégration applicative, gouvernance des SI"),
     ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
-    ("Langages (notions) : ", "Java, C#, C, PHP, HTML/CSS, SQL (PostgreSQL, Oracle), Python"),
+    ("Langages (notions) : ", "Java, C#, C, PHP, HTML/CSS, SQL, Python"),
 ]
 
 if __name__ == "__main__":
