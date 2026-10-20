@@ -22,6 +22,20 @@ m2 = cv["formation"][1]
 cv["formation"][1] = (*m2[:4],
     "Projets de développement : site e-commerce (PHP), BDD médicale (SQL), jeux (Java/C#), calcul d'impôt (C)")
 
+cv["profil"] = cv["profil"].replace("Pilotage de projets SI Finance de bout en bout", "Pilotage de projets SI de bout en bout")
+assert "SI Finance de bout" not in cv["profil"]
+
+comp = []
+for label, text in cv["competences"]:
+    if label.startswith("Gestion de projet"):
+        text = text.replace("gestion des risques – Cycle en V, Agile, hybride",
+                            "risques – Cycle en V, hybride, Agile (notions)")
+        assert "Agile (notions)" in text
+    elif label.startswith("Outils digitaux"):
+        text = "Pack Office, Teams, SharePoint, Power Apps, Power Automate, Power BI"
+    comp.append((label, text))
+cv["competences"] = comp
+
 if __name__ == "__main__":
     build_cv.CV = cv
     build_cv.SECTION_GAP = (6, 5)
