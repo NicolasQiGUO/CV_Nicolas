@@ -43,10 +43,10 @@ bnp["bullets"][0] = (label,
     "des use cases ; 20+\u00a0use\u00a0cases identifiés, 3 lancés en projet", subs)
 
 cv["competences"] = [
-    ("Microsoft 365 : ", "Power Apps, Power Automate, SharePoint (listes, sites), Teams, Copilot"),
+    ("Microsoft 365 : ", "Pack Office, Teams, SharePoint (listes, sites), Power Apps, Power Automate, Copilot"),
     ("Gestion de projet : ",
      "Cadrage, ateliers métiers, spécifications, recette, mise en production\n"
-     "Documentation et formation utilisateurs, COPIL / COSUI – Agile, cycle en V"),
+     "Formation utilisateurs, COPIL / COSUI – Cycle en V, Agile (notions)"),
     build_cv.CV["competences"][1],   # Environnement SI
     build_cv.CV["competences"][3],   # Langages (notions)
 ]

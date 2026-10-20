@@ -34,7 +34,7 @@ cv["competences"] = [
     build_cv.CV["competences"][0],
     ("Environnement SI : ",
      "SI Finance, SAP (S/4HANA, ECC), intégration applicative, gouvernance des SI"),
-    ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
+    ("Outils digitaux : ", "Pack Office, Teams, SharePoint, Power Apps, Power Automate, Power BI"),
     ("Langages (notions) : ", "Java, C#, C, PHP, HTML/CSS, SQL, Python"),
 ]
 

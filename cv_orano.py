@@ -35,7 +35,7 @@ bnp["bullets"] = [
 cv["competences"] = [
     ("Gestion de projet : ",
      "Cadrage, recueil des besoins, spécifications, recette, mise en production\n"
-     "Gouvernance (COPIL / COSUI), risques, KPI – Cycle en V, hybride (notions Agile)"),
+     "Gouvernance (COPIL / COSUI), risques, KPI – Cycle en V, hybride, Agile (notions)"),
     ("IA & outils : ", "GenAI, RAG, Microsoft 365 Copilot, RPA, Power Platform, SharePoint"),
     build_cv.CV["competences"][1],   # Environnement SI
     build_cv.CV["competences"][3],   # Langages (notions)

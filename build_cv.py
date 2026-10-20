@@ -113,10 +113,10 @@ CV = {
     "competences": [
         ("Gestion de projet : ",
          "Cadrage, recueil des besoins, spécifications, recette, mise en production\n"
-         "Gouvernance (COPIL / COSUI), gestion des risques – Cycle en V, Agile, hybride"),
+         "Gouvernance (COPIL / COSUI), risques – Cycle en V, hybride, Agile (notions)"),
         ("Environnement SI : ",
          "SI Finance, SAP, intégration applicative, sécurité, conformité et gouvernance des SI"),
-        ("Outils digitaux : ", "Power Apps, Power Automate, Power BI, SharePoint"),
+        ("Outils digitaux : ", "Pack Office, Teams, SharePoint, Power Apps, Power Automate, Power BI"),
         ("Langages (notions) : ", "Python, SQL, Java, PHP, HTML/CSS, C, C#"),
     ],
     "langues": [

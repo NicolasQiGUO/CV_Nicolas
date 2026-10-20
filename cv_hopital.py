@@ -25,8 +25,7 @@ bnp["bullets"][0] = (label,
 
 gestion = build_cv.CV["competences"][0]
 cv["competences"] = [
-    (gestion[0], gestion[1].replace("gestion des risques – Cycle en V, Agile, hybride",
-                                    "risques – Cycle en V, hybride, Agile (notions)")),
+    gestion,                         # Gestion de projet (CV général, Agile en notions)
     build_cv.CV["competences"][1],   # Environnement SI
     ("Outils digitaux : ", "Pack Office, Teams, SharePoint, Power Apps, Power Automate, Power BI"),
     build_cv.CV["competences"][3],   # Langages (notions)

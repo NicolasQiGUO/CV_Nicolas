@@ -28,8 +28,6 @@ assert "SI Finance de bout" not in cv["profil"]
 comp = []
 for label, text in cv["competences"]:
     if label.startswith("Gestion de projet"):
-        text = text.replace("gestion des risques – Cycle en V, Agile, hybride",
-                            "risques – Cycle en V, hybride, Agile (notions)")
         assert "Agile (notions)" in text
     elif label.startswith("Outils digitaux"):
         text = "Pack Office, Teams, SharePoint, Power Apps, Power Automate, Power BI"
