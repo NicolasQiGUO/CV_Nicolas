@@ -31,7 +31,7 @@ Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécur
   Rôle sur les 3 solutions : coordination / accompagnement du déploiement (pas l'industrialisation technique).
 - Programme IA transverse AI4ALL (Compliance & Risk) — rôle : contribution (pas owner du programme) :
   acculturation (sessions de sensibilisation, contenus de communication, supports pédagogiques) ;
-  pilotage de la mise en place d'un site SharePoint centralisant ressources, formations et outils IA
+  pilotage de la mise en place d'un site SharePoint « AI4ALL@Compliance » centralisant ressources, formations et outils IA
   (point d'entrée unique) ; création de canaux Teams pour les ambassadeurs ; animation (seul) du réseau
   d'ambassadeurs IA ; événements ; accompagnement individualisé. ~5 000 collaborateurs sensibilisés.
   Nombre d'ambassadeurs : 70+ (confirmé ; « une soixantaine » dans les notes d'entretien est à aligner).

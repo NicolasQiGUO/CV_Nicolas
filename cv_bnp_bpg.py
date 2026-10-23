@@ -20,9 +20,9 @@ cv["profil"] = (
 bnp = cv["experiences"][0]
 bnp["bullets"][2] = (
     "Conduite du changement ",
-    "dans le cadre d'un programme IA transverse (5 000+ collaborateurs) : pilotage d'un site "
-    "SharePoint, point d'entrée unique des ressources IA, production de contenus et supports "
-    "pédagogiques, animation de 70+ ambassadeurs IA", [])
+    "dans le cadre d'un programme IA transverse (5 000+ collaborateurs) : pilotage de la mise en "
+    "place d'un site SharePoint « AI4ALL@Compliance », point d'entrée unique des ressources IA, "
+    "animation d'un réseau de 70+ ambassadeurs IA", [])
 
 subs = cv["experiences"][1]["bullets"][0][2]
 for old, new in (
