@@ -18,6 +18,7 @@ Anglais professionnel (TOEIC 955/990) · Français bilingue · Chinois langue ma
 - Avant 2016 : Master Littératures Françaises (Paris-Sorbonne) ; Licence Langue Française (Xi'an JiaoTong)
 
 ## 2024–2025 · Digital Transformation Project Manager — AIR TECH @ BNP Paribas (alternance)
+Dates : septembre 2024 – décembre 2025 (1 an 4 mois).
 Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécurité financière)
 - Gestion des use cases IA & RPA : conception et mise en place du processus, de l'idéation/collecte à la
   validation en comité d'arbitrage ; critères d'évaluation communs ; sessions de cadrage (métiers + experts IT) ;
@@ -35,9 +36,14 @@ Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécur
   (point d'entrée unique) ; création de canaux Teams pour les ambassadeurs ; animation (seul) du réseau
   d'ambassadeurs IA ; événements ; accompagnement individualisé. ~5 000 collaborateurs sensibilisés.
   Nombre d'ambassadeurs : 70+ (confirmé ; « une soixantaine » dans les notes d'entretien est à aligner).
+- POC blockchain (AML) : benchmark du marché, organisation des tests et analyse de performances pour
+  recommander une solution ; a abouti à la signature d'un contrat pluriannuel. (source : DC de Nico)
+- Déploiement GenAI (Copilot, solutions internes) : onboarding des utilisateurs, identification de nouveaux
+  use cases, diffusion des bonnes pratiques. (source : DC de Nico)
 - Échec : assistant IA trop paramétré, peu user friendly → adoption faible (leçon : simplicité, UX).
 
 ## 2022–2024 · Chef de Projet SI — Data Intelligence & Innovation DTSFG @ La Poste Groupe (alternance + CDD)
+Dates : septembre 2022 – août 2024 (2 ans).
 Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, SIRH, SAP)
 - BUILD : pilotage de projets d'automatisation (RPA & Power Platform), dont 2 de bout en bout : ateliers de
   cadrage, analyse du processus existant et processus cible, cahiers des charges / spécifications
@@ -49,13 +55,18 @@ Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, 
   interconnectant les briques de la solution, dont SharePoint), après autoformation (IT indisponible). Résultat : de plusieurs semaines à un
   traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois, pour un
   montant total > 700 000 € de notes de crédit traitées (volume traité, PAS un gain / une économie).
+  Effets complémentaires (DC de Nico) : ≈ 3 ETP libérés, suppression des erreurs humaines.
   Devenu référent Power Platform de l'équipe.
 - NOEMIE : gestion administrative des cartes de paiement des managers/directeurs ; 100 % Power Platform +
   SharePoint (données SI RH intégrées dans SharePoint, flux Power Automate : statuts, notifications, circuits
   d'approbation). Développé par un prestataire ; Nico : cadrage, coordination, challenge, recette, MEP.
   Gestion d'un incident de production sensible (notifications erronées jusqu'au COMEX) : arrêt du flux,
   communication avec les métiers, analyse avec le prestataire, maîtrisé sans impact réel.
-- RUN : monitoring quotidien d'une dizaine de robots, incidents, KPI (ROI, fiabilité, adoption), amélioration continue.
+- RUN : monitoring quotidien d'une dizaine de robots, incidents, montées de version, KPI (ROI, fiabilité, adoption),
+  amélioration continue.
+- DAVE : participation à la mise en place d'un outil de collecte et de qualification des besoins métiers. (DC de Nico)
+- Outils (DC de Nico) : UiPath, Power Apps, Power Automate, Visio (BPMN), Planner, Teams, SharePoint, Office,
+  SAP (ECC, Saphir, Equinox), eProc, Re4One, iRegate, Plume.
 - MOA (confirmé) : rédaction de stratégies et cahiers de recette, exécution des tests, organisation des tests
   utilisateurs et suivi des anomalies ; chiffrage de charges / budget ; rédaction de procédures MOA et guides
   utilisateurs ; support fonctionnel après mise en production ; suivi des corrections avec la TMA / les prestataires.
