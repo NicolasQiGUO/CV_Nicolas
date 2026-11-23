@@ -256,9 +256,9 @@ def build(out_stem="CV_NicolasQiGUO_ESN"):
     # Diplômes littéraires antérieurs, regroupés sur une ligne
     p = b.dated_line(doc, "Avant 2016", before=5)
     b.run(p, "Master en Littératures Françaises", bold=True)
-    b.run(p, " (Paris-Sorbonne) · ")
+    b.run(p, " (Sorbonne) · ")
     b.run(p, "Licence en Langue Française", bold=True)
-    b.run(p, " (Xi'an JiaoTong, Chine)")
+    b.run(p, " (Xi'an JiaoTong University)")
 
     b.rule(doc, length_cm=3.2, before=b.SECTION_GAP[0], after=b.SECTION_GAP[1])
     p = b.para(doc, left=b.COL, first=-b.COL, tabs=((b.COL, WD_TAB_ALIGNMENT.LEFT),))
