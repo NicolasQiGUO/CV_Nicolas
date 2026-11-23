@@ -78,8 +78,8 @@ EXPERIENCES = [
                 "et recommandation d'une solution",
                 "Projet Whistleblowing : cadrage du besoin, coordination du déploiement d'une recherche "
                 "sémantique et d'un assistant RAG, organisation de la recette utilisateurs",
-                "Déploiement de l'IA générative (Microsoft 365 Copilot, solutions internes) : onboarding des "
-                "utilisateurs, identification de nouveaux cas d'usage, diffusion des bonnes pratiques",
+                "Déploiement de l'IA générative (Microsoft 365 Copilot, solutions internes) : accompagnement des "
+                "utilisateurs dans l'adoption, identification de nouveaux cas d'usage, diffusion des bonnes pratiques",
             ]),
             ("Conduite du changement – programme AI4ALL", [
                 "Contribution aux sessions d'acculturation, aux supports pédagogiques et aux contenus de communication",
