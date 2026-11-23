@@ -138,8 +138,7 @@ EXPERIENCES = [
 ]
 
 LOUIS_VUITTON = ("2018 – 2022", "Retail & VIP Guest Relations", "Louis Vuitton",
-                 "Gestion et accompagnement d'une clientèle internationale haut de gamme, dans un environnement "
-                 "exigeant et multiculturel")
+                 "Gestion d'une clientèle VIP internationale : sens du service et adaptation en contexte multiculturel")
 
 LINE = 1.05
 
