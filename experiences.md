@@ -23,7 +23,7 @@ Périmètre : Compliance & Risk (AML, sanctions, contrôle et monitoring, sécur
 - Gestion des use cases IA & RPA : conception et mise en place du processus, de l'idéation/collecte à la
   validation en comité d'arbitrage ; critères d'évaluation communs ; sessions de cadrage (métiers + experts IT) ;
   sessions de qualification (ROI, faisabilité, contraintes techniques/réglementaires) ; fiches use case pour
-  les comités. Pilote ~1,5 mois : ~20 use cases collectés, 3 lancés en projet.
+  les comités. Pilote ~2 à 2,5 mois (précisé par Nico le 2026-11-23) : ~20 use cases collectés, 3 lancés en projet.
   Exemple : use case agent IA (Leasing, screening) non retenu → réorientation vers une solution RPA existante.
 - Projets IA : intégration/déploiement de solutions IA existantes du Groupe (RAG, AIR Tech Smart Assistant,
   Microsoft 365 Copilot) pour de nouveaux métiers. Ex. équipe Whistleblowing : AIR Tech Search (recherche
@@ -55,7 +55,8 @@ Périmètre : Direction de la Transformation des Solutions Finance (SI Finance, 
   interconnectant les briques de la solution, dont SharePoint), après autoformation (IT indisponible). Résultat : de plusieurs semaines à un
   traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois, pour un
   montant total > 700 000 € de notes de crédit traitées (volume traité, PAS un gain / une économie).
-  Effets complémentaires (DC de Nico) : ≈ 3 ETP libérés, suppression des erreurs humaines.
+  Effets complémentaires (DC de Nico) : suppression des erreurs humaines. « ≈ 3 ETP libérés » : origine incertaine
+  (ni mesuré ni estimé de façon sûre) → NE PLUS l'écrire (décision du 2026-11-23).
   Devenu référent Power Platform de l'équipe.
 - NOEMIE : gestion administrative des cartes de paiement des managers/directeurs ; 100 % Power Platform +
   SharePoint (données SI RH intégrées dans SharePoint, flux Power Automate : statuts, notifications, circuits
