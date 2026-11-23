@@ -82,3 +82,11 @@ Animation d'ateliers de recueil des besoins ; rédaction de documentation / supp
 
 ## 2018–2022 · Retail & VIP Guest Relations @ Louis Vuitton
 Clientèle VIP internationale, environnement exigeant ; sens du service, adaptation multiculturelle.
+
+## Précisions du 2026-11-23 (CV ESN)
+- La Poste : animation des COSUI (comités de suivi) ; COPIL = préparation des supports et contribution, PAS animation.
+- BNP : processus de gestion des cas d'usage conçu par Nico lui-même (« Conception et mise en place »).
+- BNP : réorientation du cas d'usage agent IA (Leasing) vers la RPA = proposition de Nico, pas sa décision.
+- AI4ALL : événements → « contribution à l'organisation » (organisation en amont, plusieurs animateurs pendant l'événement).
+- AI4ALL : ≈ 5 000 = population cible du programme → écrire « destiné à ≈ 5 000 collaborateurs », pas « sensibilisés ».
+- e-Note : ne plus écrire « zéro erreur » / « suppression des erreurs » (décision : retirer cette ligne).
