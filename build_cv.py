@@ -243,8 +243,8 @@ PHOTO_GAP = 0.6
 TITLE_SIZE = 10
 
 
-def build(out_stem):
-    from docx.enum.text import WD_TAB_ALIGNMENT
+def new_document():
+    """Document A4 aux marges et à la police du CV."""
     doc = Document()
     s = doc.sections[0]
     s.page_height, s.page_width = Cm(29.7), Cm(PAGE_W)
@@ -253,11 +253,16 @@ def build(out_stem):
     normal = doc.styles["Normal"]
     normal.font.name = FONT
     normal.font.size = Pt(SIZE)
+    return doc
 
-    # --- En-tête : title > nom > coordonnées > profil ; photo seule à droite.
-    # Title court : il tient à côté de la photo et le bloc texte s'aligne sur sa largeur.
-    # Title long : il occupe toute la largeur et la photo démarre à la ligne du nom.
-    title_w = text_width_cm(CV["title"], TITLE_SIZE, bold=True)
+
+def write_header(doc, cv):
+    """En-tête : title > nom > coordonnées > profil ; photo seule à droite.
+
+    Title court : il tient à côté de la photo et le bloc texte s'aligne sur sa largeur.
+    Title long : il occupe toute la largeur et la photo démarre à la ligne du nom.
+    """
+    title_w = text_width_cm(cv["title"], TITLE_SIZE, bold=True)
     title_beside_photo = title_w + PHOTO_W + PHOTO_GAP <= CONTENT_WIDTH - HEADER_INDENT
     right = (CONTENT_WIDTH - HEADER_INDENT - title_w - 0.05) if title_beside_photo else PHOTO_W + PHOTO_GAP
     photo = ROOT / "assets" / "photo_header.png"
@@ -270,20 +275,37 @@ def build(out_stem):
     p = head() if title_beside_photo else para(doc, left=HEADER_INDENT)
     if title_beside_photo and photo.exists():
         float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.1)
-    run(p, CV["title"], size=TITLE_SIZE, bold=True)
+    run(p, cv["title"], size=TITLE_SIZE, bold=True)
 
     p = head(before=6, after=1)
     if not title_beside_photo and photo.exists():
         float_picture(p, photo, width_cm=PHOTO_W, top_offset_cm=0.05)
-    run(p, CV["nom"], size=10, bold=True)
-    for line in CV["contact"]:
+    run(p, cv["nom"], size=10, bold=True)
+    for line in cv["contact"]:
         p = head()
         run(p, line, size=9)
 
     p = head(before=7)
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     run(p, "Profil : ", bold=True)
-    run(p, CV["profil"])
+    run(p, cv["profil"])
+
+
+def save(doc, out_stem):
+    """Enregistre le DOCX dans output/ et le convertit en PDF."""
+    out_dir = ROOT / "output"
+    out_dir.mkdir(exist_ok=True)
+    docx_path = out_dir / f"{out_stem}.docx"
+    doc.save(docx_path)
+    subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(out_dir), str(docx_path)],
+                   check=True, capture_output=True)
+    return docx_path, out_dir / f"{out_stem}.pdf"
+
+
+def build(out_stem):
+    from docx.enum.text import WD_TAB_ALIGNMENT
+    doc = new_document()
+    write_header(doc, CV)
 
     rule(doc, before=12, after=7)
 
@@ -340,13 +362,7 @@ def build(out_stem):
     p = para(doc, left=COL + LABEL, first=-(COL + LABEL), tabs=((COL + LABEL, WD_TAB_ALIGNMENT.LEFT),))
     run(p, "CENTRES D'INTÉRÊT\t" + CV["interets"])
 
-    out_dir = ROOT / "output"
-    out_dir.mkdir(exist_ok=True)
-    docx_path = out_dir / f"{out_stem}.docx"
-    doc.save(docx_path)
-    subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(out_dir), str(docx_path)],
-                   check=True, capture_output=True)
-    return docx_path, out_dir / f"{out_stem}.pdf"
+    return save(doc, out_stem)
 
 
 if __name__ == "__main__":
