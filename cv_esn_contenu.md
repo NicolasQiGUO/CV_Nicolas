@@ -18,7 +18,7 @@ Formation, Langues, Centres d'intérêt.
 
 - **Méthodologies** : Cycle en V, approche hybride, Agile (notions)
 - **IA & automatisation** : IA générative, RAG, Microsoft 365 Copilot, RPA (UiPath)
-- **Low-code** : Power Apps, Power Automate, listes SharePoint
+- **Low-code** : Power Apps, Power Automate
 - **Outils** : Pack Office, Teams, SharePoint, Planner, Visio (BPMN), Power BI
 - **ERP & SI métiers** : SAP (ECC, Saphir, Equinox), eProc, Re4One, iRegate, Plume
 - **Langages (notions)** : SQL, Python, Java, PHP, C, C#, HTML/CSS
@@ -38,7 +38,6 @@ Au sein d'AIR Tech (AI, RPA & Technologies), entité chargée de la transformati
 - Conception et mise en place d'un processus de gestion des cas d'usage, de la collecte au comité d'arbitrage
 - Définition de critères d'évaluation communs : impact business, ROI, faisabilité technique, conformité
 - Animation de sessions de cadrage et de qualification avec les métiers et les experts IT ; rédaction des fiches cas d'usage destinées au comité
-- Proposition de réorientation d'un cas d'usage d'agent IA non retenu vers une solution RPA existante
 
 *Pilotage et coordination de projets IA*
 - POC blockchain (AML) : benchmark du marché, organisation des tests, analyse des performances et recommandation d'une solution
@@ -63,7 +62,7 @@ Cycle en V, approche hybride · IA générative, RAG, Microsoft 365 Copilot · S
 La Poste Groupe – Data Intelligence & Innovation, DTSFG · 2 ans
 
 **CONTEXTE**
-Équipe Data Intelligence & Innovation de la Direction de la Transformation des Solutions Finance du Groupe (SI Finance, SIRH, SAP). Delivery de projets d'automatisation (RPA, Power Platform) pour les directions Finance et RH, du cadrage au RUN.
+Équipe Data Intelligence & Innovation de la Direction de la Transformation des Solutions Finance du Groupe. Delivery de projets d'automatisation (RPA, Power Platform) pour les fonctions support (Finance, Achats, RH), du cadrage au RUN.
 
 **RÉALISATIONS**
 
@@ -76,16 +75,16 @@ La Poste Groupe – Data Intelligence & Innovation, DTSFG · 2 ans
 - Mise en production, procédures et guides utilisateurs, support fonctionnel, suivi des corrections (TMA)
 
 *RUN*
-- Supervision quotidienne d'une dizaine de robots, gestion des incidents et des montées de version
+- Supervision d'une dizaine de robots RPA en production, gestion des incidents et des montées de version
 - Suivi des indicateurs (ROI, fiabilité, adoption) et amélioration continue
 
 *Projets phares*
-- e-Note de crédit : digitalisation de la création et de la comptabilisation des notes de crédit dans SAP ; développement de l'ensemble de la partie Power Platform (Power Apps, Power Automate, SharePoint), la partie RPA étant réalisée par l'équipe de développement
+- e-Note de crédit : digitalisation de la gestion des notes de crédit, de leur création (jusque-là manuelle, par les achats) à leur contrôle et leur comptabilisation dans SAP ; développement de toute la partie Power Platform (Power Apps, Power Automate, SharePoint), partie RPA réalisée par l'équipe de développement
 - NOEMIE : application Power Platform de gestion des cartes de paiement des directions, développée par un prestataire ; cadrage, recette, mise en production et gestion d'un incident de production sensible
 - DAVE : participation à la mise en place d'un outil de collecte et de qualification des besoins métiers
 
 **RÉSULTATS & LIVRABLES**
-- e-Note de crédit : délai de traitement ramené de plusieurs semaines à un traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois, pour plus de 700 k€ de notes de crédit
+- e-Note de crédit : délai de traitement ramené de plusieurs semaines à un traitement instantané ; plusieurs milliers de notes traitées en quelques mois, pour plus de 700 k€ de notes de crédit
 - Référent Power Platform de l'équipe
 
 **MÉTHODOLOGIES & OUTILS**

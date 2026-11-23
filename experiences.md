@@ -90,3 +90,6 @@ Clientèle VIP internationale, environnement exigeant ; sens du service, adaptat
 - AI4ALL : événements → « contribution à l'organisation » (organisation en amont, plusieurs animateurs pendant l'événement).
 - AI4ALL : ≈ 5 000 = population cible du programme → écrire « destiné à ≈ 5 000 collaborateurs », pas « sensibilisés ».
 - e-Note : ne plus écrire « zéro erreur » / « suppression des erreurs » (décision : retirer cette ligne).
+- e-Note : processus couvert = création (auparavant manuelle, par les achats), contrôle et comptabilisation dans SAP ;
+  résultat formulé par Nico : « de plusieurs semaines à un traitement instantané » (sans « quasi »).
+- Réorientation Leasing → RPA : exemple à raconter à l'oral, ne plus l'écrire comme réalisation.
