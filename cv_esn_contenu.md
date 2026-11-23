@@ -9,7 +9,7 @@ Formation, Langues, Centres d'intérêt.
 1. **Pilotage de projets SI** : cadrage, estimation des charges et planification, suivi de l'avancement et des risques ; animation des comités de suivi (COSUI), préparation des supports et contribution aux comités de pilotage (COPIL) ; coordination de la recette et accompagnement de la mise en production.
 2. **Analyse des besoins (AMOA)** : animation d'ateliers avec les métiers, analyse des processus existants et modélisation des processus cibles ; rédaction des cahiers des charges, des spécifications fonctionnelles et techniques, des stratégies et cahiers de recette.
 3. **Coordination Métiers–IT** : interface entre les métiers, les équipes de développement et les prestataires ; suivi des développements, des tests utilisateurs et des anomalies, puis des corrections avec la TMA.
-4. **Conduite du changement** : conception de supports pédagogiques et de contenus de communication, animation d'un réseau d'ambassadeurs, formation et accompagnement des utilisateurs, rédaction de guides utilisateurs.
+4. **Conduite du changement** : conception de supports pédagogiques et de contenus de communication, animation d'un réseau d'ambassadeurs, formation et accompagnement des utilisateurs, rédaction de guides.
 5. **IA & automatisation** : collecte, qualification et priorisation de cas d'usage IA et RPA selon des critères communs (impact business, ROI, faisabilité, conformité) ; organisation de POC ; accompagnement du déploiement de solutions d'IA générative.
 6. **Développement low-code** : conception et développement d'applications et de flux automatisés sur Power Platform, intégrés à SharePoint.
 7. **RUN & amélioration continue** : supervision de robots en production, gestion des incidents et des montées de version, suivi des indicateurs (ROI, fiabilité, adoption) et actions d'amélioration.
@@ -17,7 +17,8 @@ Formation, Langues, Centres d'intérêt.
 ## ENVIRONNEMENT TECHNIQUE & MÉTHODOLOGIQUE
 
 - **Méthodologies** : Cycle en V, approche hybride, Agile (notions)
-- **IA & automatisation** : IA générative, RAG, Microsoft 365 Copilot, RPA (UiPath), Power Apps, Power Automate
+- **IA & automatisation** : IA générative, RAG, Microsoft 365 Copilot, RPA (UiPath)
+- **Low-code** : Power Apps, Power Automate, listes SharePoint
 - **Outils** : Pack Office, Teams, SharePoint, Planner, Visio (BPMN), Power BI
 - **ERP & SI métiers** : SAP (ECC, Saphir, Equinox), eProc, Re4One, iRegate, Plume
 - **Langages (notions)** : SQL, Python, Java, PHP, C, C#, HTML/CSS
@@ -34,8 +35,8 @@ Au sein d'AIR Tech (AI, RPA & Technologies), entité chargée de la transformati
 **RÉALISATIONS**
 
 *Structuration et priorisation des initiatives IA & RPA*
-- Conception et mise en place d'un processus de gestion des cas d'usage, de la collecte à la validation en comité d'arbitrage
-- Définition de critères d'évaluation communs : impact business, ROI, faisabilité technique, contraintes réglementaires
+- Conception et mise en place d'un processus de gestion des cas d'usage, de la collecte au comité d'arbitrage
+- Définition de critères d'évaluation communs : impact business, ROI, faisabilité technique, conformité
 - Animation de sessions de cadrage et de qualification avec les métiers et les experts IT ; rédaction des fiches cas d'usage destinées au comité
 - Proposition de réorientation d'un cas d'usage d'agent IA non retenu vers une solution RPA existante
 
@@ -45,7 +46,7 @@ Au sein d'AIR Tech (AI, RPA & Technologies), entité chargée de la transformati
 - Déploiement de l'IA générative (Microsoft 365 Copilot, solutions internes) : onboarding des utilisateurs, identification de nouveaux cas d'usage, diffusion des bonnes pratiques
 
 *Conduite du changement – programme AI4ALL*
-- Contribution aux sessions d'acculturation et à la création des supports pédagogiques et des contenus de communication
+- Contribution aux sessions d'acculturation, aux supports pédagogiques et aux contenus de communication
 - Pilotage de la mise en place du site SharePoint « AI4ALL@Compliance », point d'entrée unique vers les ressources, formations et outils IA
 - Animation du réseau de 70+ ambassadeurs IA : création des canaux Teams, contribution à l'organisation des événements, accompagnement individualisé
 
@@ -53,7 +54,6 @@ Au sein d'AIR Tech (AI, RPA & Technologies), entité chargée de la transformati
 - 20+ cas d'usage collectés et qualifiés en deux mois environ, dont 3 retenus et lancés en projet
 - POC blockchain : recommandation ayant abouti à la contractualisation pluriannuelle de la solution
 - Programme AI4ALL destiné à ≈ 5 000 collaborateurs ; site « AI4ALL@Compliance » mis en place
-- Livrables : processus et grille de qualification des cas d'usage, fiches cas d'usage, supports pédagogiques
 
 **MÉTHODOLOGIES & OUTILS**
 Cycle en V, approche hybride · IA générative, RAG, Microsoft 365 Copilot · SharePoint, Teams, Office, Visio (BPMN), Planner
@@ -72,22 +72,21 @@ La Poste Groupe – Data Intelligence & Innovation, DTSFG · 2 ans
 - Rédaction des cahiers des charges et des spécifications fonctionnelles et techniques
 - Estimation des charges et du budget, planification et suivi des risques ; animation des comités de suivi (COSUI), préparation des supports et contribution aux comités de pilotage (COPIL)
 - Coordination des développements internes et des prestataires
-- Rédaction des stratégies et cahiers de recette, exécution des tests, organisation des tests utilisateurs et suivi des anomalies
-- Mise en production, rédaction des procédures et guides utilisateurs, support fonctionnel et suivi des corrections avec la TMA
+- Rédaction des stratégies et cahiers de recette, exécution et organisation des tests, suivi des anomalies
+- Mise en production, procédures et guides utilisateurs, support fonctionnel, suivi des corrections (TMA)
 
 *RUN*
-- Supervision quotidienne d'une dizaine de robots en production, gestion des incidents et des montées de version
+- Supervision quotidienne d'une dizaine de robots, gestion des incidents et des montées de version
 - Suivi des indicateurs (ROI, fiabilité, adoption) et amélioration continue
 
 *Projets phares*
-- e-Note de crédit : digitalisation de la création et de la comptabilisation dans SAP des notes de crédit. Solution RPA + Power Platform : développement de l'ensemble de la partie Power Platform (interface Power Apps, flux Power Automate reliés à SharePoint), la partie RPA étant réalisée par l'équipe de développement
+- e-Note de crédit : digitalisation de la création et de la comptabilisation des notes de crédit dans SAP ; développement de l'ensemble de la partie Power Platform (Power Apps, Power Automate, SharePoint), la partie RPA étant réalisée par l'équipe de développement
 - NOEMIE : application Power Platform de gestion des cartes de paiement des directions, développée par un prestataire ; cadrage, recette, mise en production et gestion d'un incident de production sensible
 - DAVE : participation à la mise en place d'un outil de collecte et de qualification des besoins métiers
 
 **RÉSULTATS & LIVRABLES**
 - e-Note de crédit : délai de traitement ramené de plusieurs semaines à un traitement quasi instantané ; plusieurs milliers de notes traitées en quelques mois, pour plus de 700 k€ de notes de crédit
 - Référent Power Platform de l'équipe
-- Livrables : cahiers des charges, spécifications, stratégies et cahiers de recette, procédures et guides utilisateurs
 
 **MÉTHODOLOGIES & OUTILS**
 Cycle en V, approche hybride · UiPath, Power Apps, Power Automate, SharePoint · Visio (BPMN), Planner, Teams, Office · SAP (ECC, Saphir, Equinox), eProc, Re4One, iRegate, Plume
@@ -101,3 +100,8 @@ Cycle en V, approche hybride · UiPath, Power Apps, Power Automate, SharePoint �
 - Titres de rubrique et de sous-groupe solidaires du paragraphe suivant (jamais seuls en bas de page).
 - Une expérience peut continuer sur la page suivante. Pas de réduction de la police pour tout faire tenir.
 - Si dépassement de 2 pages, compresser dans l'ordre : Louis Vuitton sur une ligne → Langues + Centres d'intérêt regroupés → ligne Livrables fusionnée → sinon demander quelle réalisation retirer.
+
+## Ajustements de mise en page (2 pages, police inchangée)
+- Lignes « Livrables » retirées (redondantes avec les réalisations).
+- Louis Vuitton sur une ligne ; diplômes littéraires sur une ligne ; Langues et Intérêts regroupés.
+- Chaque groupe de réalisations reste solidaire ; BNP continue en page 2 à partir de « Conduite du changement – programme AI4ALL ».
