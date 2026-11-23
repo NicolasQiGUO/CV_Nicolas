@@ -62,7 +62,7 @@ Cycle en V, approche hybride · IA générative, RAG, Microsoft 365 Copilot · S
 La Poste Groupe – Data Intelligence & Innovation, DTSFG · 2 ans
 
 **CONTEXTE**
-Équipe Data Intelligence & Innovation de la Direction de la Transformation des Solutions Finance du Groupe. Delivery de projets d'automatisation (RPA, Power Platform) pour les fonctions support (Finance, Achats, RH), du cadrage au RUN.
+Au sein de la Direction de la Transformation des Solutions Finance du Groupe : projets d'automatisation (RPA, Power Platform) pour les fonctions support (Finance, Achats, RH), du cadrage au RUN.
 
 **RÉALISATIONS**
 
@@ -104,3 +104,8 @@ Cycle en V, approche hybride · UiPath, Power Apps, Power Automate, SharePoint �
 - Lignes « Livrables » retirées (redondantes avec les réalisations).
 - Louis Vuitton sur une ligne ; diplômes littéraires sur une ligne ; Langues et Intérêts regroupés.
 - Chaque groupe de réalisations reste solidaire ; BNP continue en page 2 à partir de « Conduite du changement – programme AI4ALL ».
+
+## Louis Vuitton (2018 – 2022)
+**Retail & VIP Guest Relations**
+Louis Vuitton
+Gestion et accompagnement d'une clientèle internationale haut de gamme, dans un environnement exigeant et multiculturel.

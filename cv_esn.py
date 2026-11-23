@@ -101,9 +101,8 @@ EXPERIENCES = [
         "dates": "2022 – 2024", "contrat": "Alternance + CDD",
         "poste": "Chef de Projet SI",
         "entreprise": "La Poste Groupe – Data Intelligence & Innovation, DTSFG · 2 ans",
-        "contexte": "Équipe Data Intelligence & Innovation de la Direction de la Transformation des Solutions "
-                    "Finance du Groupe. Delivery de projets d'automatisation (RPA, Power Platform) pour les "
-                    "fonctions support (Finance, Achats, RH), du cadrage au RUN.",
+        "contexte": "Au sein de la Direction de la Transformation des Solutions Finance du Groupe : projets d'automatisation (RPA, Power Platform) pour les fonctions "
+                    "support (Finance, Achats, RH), du cadrage au RUN.",
         "axes": [
             ("BUILD – projets d'automatisation, dont 2 pilotés de bout en bout", [
                 "Animation des ateliers de cadrage, analyse des processus existants et conception des processus cibles",
@@ -139,7 +138,8 @@ EXPERIENCES = [
 ]
 
 LOUIS_VUITTON = ("2018 – 2022", "Retail & VIP Guest Relations", "Louis Vuitton",
-                 "clientèle VIP internationale et multiculturelle")
+                 "Gestion et accompagnement d'une clientèle internationale haut de gamme, dans un environnement "
+                 "exigeant et multiculturel")
 
 LINE = 1.05
 
@@ -239,10 +239,11 @@ def build(out_stem="CV_NicolasQiGUO_ESN"):
         texte(doc, exp["outils"])
 
     dates, poste, entreprise, desc = LOUIS_VUITTON
-    p = b.dated_line(doc, dates, before=12)
-    b.run(p, poste, bold=True)
-    b.run(p, " @ " + entreprise + " – ", color=b.GREY)
-    b.run(p, desc)
+    p = b.dated_line(doc, dates, before=10)
+    b.run(p, poste, bold=True, size=10.5)
+    p = b.para(doc, left=b.COL, line=LINE)
+    b.run(p, entreprise, size=9, color=b.GREY)
+    b.run(p, " – " + desc)
 
     # --- Formation, langues, centres d'intérêt
     section_titre(doc, "FORMATION")
