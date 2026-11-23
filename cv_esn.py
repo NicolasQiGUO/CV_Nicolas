@@ -23,29 +23,28 @@ CV = {
               "gouvernance et conduite du changement.",
 }
 
-# Savoir-faire, du plus au moins maîtrisé : (domaine, ce que je sais faire, où je l'ai pratiqué)
+# Savoir-faire, du plus au moins maîtrisé : (domaine, description). Les preuves sont dans les expériences.
 SAVOIR_FAIRE = [
     ("Pilotage de projets SI",
-     "cadrage, chiffrage, planning, risques, COPIL / COSUI, recette, mise en production",
-     "2 projets de bout en bout chez La Poste"),
-    ("Analyse des besoins",
-     "ateliers métiers, cartographie des processus, cahiers des charges, spécifications fonctionnelles et techniques",
-     "La Poste, BNP Paribas"),
+     "conduite de projets du cadrage à la mise en production : chiffrage des charges, planification, "
+     "suivi des risques, animation des COPIL / COSUI, organisation de la recette et accompagnement du déploiement"),
+    ("Analyse des besoins (AMOA)",
+     "animation d'ateliers métiers, cartographie des processus existants et cibles, rédaction des cahiers "
+     "des charges et des spécifications fonctionnelles et techniques, stratégies et cahiers de recette"),
     ("Coordination Métiers–IT",
-     "interface entre métiers, équipes IT et prestataires",
-     "La Poste, BNP Paribas"),
+     "interface entre métiers, équipes de développement, experts IA et prestataires : traduction des besoins "
+     "en solutions, suivi des développements et des corrections avec la TMA"),
     ("Conduite du changement",
-     "acculturation, supports pédagogiques, animation de communauté, formation des utilisateurs",
-     f"programme AI4ALL, 70+{NB}ambassadeurs"),
-    ("Cas d'usage IA & RPA",
-     "collecte, qualification (valeur, ROI, faisabilité, conformité) et priorisation jusqu'au comité d'arbitrage",
-     "20+ cas d'usage chez BNP Paribas"),
+     "conception d'actions d'acculturation et de supports pédagogiques, animation d'une communauté "
+     "d'utilisateurs, formation et accompagnement des utilisateurs, rédaction de procédures et de guides"),
+    ("IA & automatisation",
+     "collecte, qualification (impact business, ROI, faisabilité, conformité) et priorisation de cas d'usage "
+     "IA & RPA ; accompagnement du déploiement de solutions GenAI (RAG, Microsoft 365 Copilot)"),
     ("Développement low-code",
-     "Power Apps, Power Automate, SharePoint",
-     "référent Power Platform"),
+     "conception et développement d'applications Power Apps et de flux Power Automate connectés à SharePoint"),
     ("RUN & amélioration continue",
-     "monitoring, incidents, montées de version, KPI",
-     "une dizaine de robots"),
+     "supervision de robots en production, gestion des incidents et des montées de version, suivi des KPI "
+     "(ROI, fiabilité, adoption)"),
 ]
 
 ENVIRONNEMENT = [
@@ -59,7 +58,7 @@ ENVIRONNEMENT = [
 
 EXPERIENCES = [
     {
-        "dates": "2024 – 2025", "duree": "Sept. 2024 – déc. 2025", "contrat": "Alternance",
+        "dates": "2024 – 2025", "duree": "1 an et 4 mois", "contrat": "Alternance",
         "poste": "Digital Transformation Project Manager – AIR TECH @ BNP PARIBAS",
         "contexte": "AIR Tech (AI, RPA & Technologies), entité dédiée à la transformation technologique des "
                     "fonctions Compliance & Risk (AML, sanctions, sécurité financière). Rôle transverse sur trois axes : "
@@ -95,7 +94,7 @@ EXPERIENCES = [
                           "Visio (BPMN), Planner",
     },
     {
-        "dates": "2022 – 2024", "duree": "Sept. 2022 – août 2024", "contrat": "Alternance + CDD",
+        "dates": "2022 – 2024", "duree": "2 ans", "contrat": "Alternance + CDD",
         "poste": "Chef de Projet SI – Data Intelligence & Innovation DTSFG @ LA POSTE GROUPE",
         "contexte": "Équipe Data Intelligence & Innovation, rattachée à la Direction de la Transformation des "
                     "Solutions Finance du Groupe (SI Finance, SIRH, SAP). Rôle orienté pilotage opérationnel et "
@@ -139,16 +138,22 @@ LOUIS_VUITTON = ("2018 – 2022", "Retail & VIP Guest Relations @ LOUIS VUITTON"
                  "et adaptation en contexte multiculturel")
 
 
-def sub_heading(doc, text, before=3):
-    """Intertitre en italique dans la colonne de contenu (Contexte, Réalisations…)."""
-    p = b.para(doc, before=before, after=1, left=b.COL, keep=True)
-    b.run(p, text, size=9, italic=True, color=b.GREY)
-    return p
-
-
-def text_block(doc, text, after=1):
-    p = b.para(doc, after=after, left=b.COL, line=1.05)
-    b.run(p, text)
+def block_line(doc, label, text="", bullet=None, bold_text=False, before=0, after=0, size=None):
+    """Ligne dont le libellé de bloc (CONTEXTE, RÉALISATIONS…) est centré dans la colonne des dates."""
+    left = b.COL if bullet is None else b.BUL
+    tabs = [(b.DATE_CENTER, WD_TAB_ALIGNMENT.CENTER)]
+    if bullet is not None:
+        tabs.append((b.BUL - 0.4, WD_TAB_ALIGNMENT.LEFT))
+    tabs.append((left, WD_TAB_ALIGNMENT.LEFT))
+    p = b.para(doc, before=before, after=after, left=left, first=-left, tabs=tabs, line=1.05)
+    b.run(p, "\t")
+    if label:
+        b.run(p, label, size=8, bold=True, color=b.GREY)
+    b.run(p, "\t")
+    if bullet is not None:
+        b.run(p, bullet + "\t", size=None if bullet == "•" else 7.5)
+    if text:
+        b.run(p, text, bold=bold_text, size=size)
     return p
 
 
@@ -159,12 +164,11 @@ def build(out_stem="CV_NicolasQiGUO_ESN"):
 
     # --- Savoir-faire (en tête, du plus au moins maîtrisé)
     b.section(doc, "COMPÉTENCES CLÉS", first=True)
-    for domaine, quoi, ou in SAVOIR_FAIRE:
-        p = b.para(doc, after=1.5, left=b.BUL, first=-0.4, tabs=((b.BUL, WD_TAB_ALIGNMENT.LEFT),), line=1.05)
+    for domaine, quoi in SAVOIR_FAIRE:
+        p = b.para(doc, after=2, left=b.BUL, first=-0.4, tabs=((b.BUL, WD_TAB_ALIGNMENT.LEFT),), line=1.05)
         b.run(p, "•\t")
         b.run(p, domaine + " : ", bold=True)
         b.run(p, quoi)
-        b.run(p, " – " + ou, italic=True, color=b.GREY)
 
     # --- Environnement technique
     b.rule(doc, length_cm=3.2, before=b.SECTION_GAP[0], after=b.SECTION_GAP[1])
@@ -189,19 +193,15 @@ def build(out_stem="CV_NicolasQiGUO_ESN"):
         b.run(p, "\t")
         b.run(p, exp["duree"], size=9, italic=True)
 
-        sub_heading(doc, "Contexte")
-        text_block(doc, exp["contexte"])
-        sub_heading(doc, "Réalisations")
-        for axe, items in exp["axes"]:
-            b.bullet(doc, axe + " :", "", after=0)
-            for j, item in enumerate(items):
-                b.bullet(doc, "", item, level=1, after=1.5 if j == len(items) - 1 else 0)
-        sub_heading(doc, "Résultats")
-        for j, r in enumerate(exp["resultats"]):
-            b.bullet(doc, "", r, after=0)
-        p = b.para(doc, before=3, after=0, left=b.COL, line=1.05)
-        b.run(p, "Méthodologie & outils : ", size=9, bold=True)
-        b.run(p, exp["methodo_outils"], size=9)
+        block_line(doc, "CONTEXTE", exp["contexte"], before=4, after=1)
+        for k, (axe, items) in enumerate(exp["axes"]):
+            block_line(doc, "RÉALISATIONS" if k == 0 else "", axe + " :", bullet="•", bold_text=True,
+                       before=4 if k == 0 else 1)
+            for item in items:
+                b.bullet(doc, "", item, level=1, after=0)
+        for k, res in enumerate(exp["resultats"]):
+            block_line(doc, "RÉSULTATS" if k == 0 else "", res, bullet="•", before=5 if k == 0 else 0)
+        block_line(doc, "OUTILS", exp["methodo_outils"], before=5, size=9)
 
     dates, poste, texte = LOUIS_VUITTON
     p = b.dated_line(doc, dates, before=8, after=1)
